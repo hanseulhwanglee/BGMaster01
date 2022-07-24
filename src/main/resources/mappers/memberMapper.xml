@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BGMaster.memberMapper">
+
+	
+	<!-- 회원가입 -->
+	<insert id="signup" parameterType="bgm.bgmaster.domain.MemberDTO">
+		INSERT into schematest.tbl_member (userid, userpassword, username, telno, email, gender, birthday)
+		VALUES (#{userid}, #{userpassword}, #{username},#{telno},#{email}, #{gender}, #{birthday})
+	</insert>
+	
+	<!-- 로그인 정보 체크 -->
+	<select id="logininfo" parameterType="bgm.bgmaster.domain.MemberDTO" resultType="int">
+		SELECT count(*)
+		FROM schematest.tbl_member
+		WHERE userid=#{userid} and userpassword=#{userpassword}
+	</select>
+
+
+
+</mapper>
+
+

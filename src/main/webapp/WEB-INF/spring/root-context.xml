@@ -11,11 +11,13 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
+		
+	<!-- ********************수정 필요******************** -->	
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		 id="dataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
 		<!-- <property name="url" value="jdbc:mariadb://127.0.0.1:3306/"/> --> <!--데이터베이스명-->
-		<property name="url" value="jdbc:postgresql://127.0.0.1:5432/postgres"/> <!--데이터베이스명-->
+		<property name="url" value="jdbc:postgresql://127.0.0.1:5432/gittest"/> <!--데이터베이스명-->
 		<property name="username" value="postgres" /><!--계정 ID 추가--> 
 		<property name="password" value="1234" /><!--비밀번호 추가-->
 	</bean>
@@ -30,5 +32,8 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
+	<context:component-scan base-package="bgm.bgmaster.domain" />
+	<context:component-scan base-package="bgm.bgmaster.service" />
+	<context:component-scan base-package="bgm.bgmaster.dao" />
 	
 </beans>

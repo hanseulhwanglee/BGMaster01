@@ -8,9 +8,9 @@ public class MemberDTO {
 			userpassword varchar(20) null,
 			telno varchar(20) null,
 			email varchar(30) null,
-			regdate timestamp null,
+			regdate timestamp null DEFAULT CURRENT_TIMESTAMP,
 			authority_code varchar(1) null default '0',
-			gender varchar(1) null default '0'
+			gender varchar(10) null default '0'
 			birthday varchar(10) null
 		);*/
 	

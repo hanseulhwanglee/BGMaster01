@@ -10,7 +10,11 @@ public class MemberDTO {
 			email varchar(30) null,
 			regdate timestamp null DEFAULT CURRENT_TIMESTAMP,
 			authority_code varchar(1) null default '0',
+<<<<<<< Updated upstream
 			gender varchar(10) null default '0'
+=======
+			gender varchar(1) null default '0',
+>>>>>>> Stashed changes
 			birthday varchar(10) null
 		);*/
 	

@@ -16,6 +16,7 @@
 <a href="/member/login">로그인</a>
 <a href="/member/signup">회원가입</a>
 <a href="/member/logout">로그아웃</a>
+<a href="/game/updown">게임_UPDOWN</a>
 
 <h4> root-context에서 DB 설정하세요</h4>
 <h4>

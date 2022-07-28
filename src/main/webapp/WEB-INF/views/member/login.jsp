@@ -26,7 +26,7 @@
 	                alert("일치하는 회원정보가 없습니다.");
 	                $("#userid").val("").focus();
 	             }else if(a == 1){
-	                location.href = '/board/list';
+	                location.href = '/';
 	             }
 	          }
 	       });

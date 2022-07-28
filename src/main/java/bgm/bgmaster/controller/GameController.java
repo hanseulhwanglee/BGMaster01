@@ -33,7 +33,7 @@ public class GameController {
 	}
 	
 	//#220728
-	//----------------updown게임_POST -----------------------
+	//----------------updown게임_POST----------------
 	@ResponseBody
 	@PostMapping(value="/updown")
 	public String postUpdown(RecordDTO recordDTO, HttpSession session/*, @RequestParam(name ="recordCount") String a, @RequestParam(name ="recordTime") String b */) throws Exception{
@@ -51,9 +51,40 @@ public class GameController {
 		//updown -> gamecode:1
 		recordDTO.setGamecode("1");
 		
-		recordService.postRecord(recordDTO);
+		recordService.postUpdown(recordDTO);
 		
 		return "";
 	}
+	
+	//#220728 슬
+	//----------------가위바위보 게임 페이지 이동_GET -----------------------
+	@GetMapping(value="/RPS")
+	public void getRPS(Model model, HttpSession session) throws Exception{
+		logger.info("session.getAttribute(userid):{}",session.getAttribute("userid"));
+		model.addAttribute("userId", session.getAttribute("userid"));
+		
+	}
+	
 
+	//----------------가위바위보 게임_POST----------------
+	@ResponseBody
+	@PostMapping(value="/RPS")
+	public String postRPS(RecordDTO recordDTO, HttpSession session) throws Exception{
+		
+		logger.info("가위바위보 게임_POST 진입");
+		//logger.info("a:{}",a); 
+		//logger.info("b:{}",b);
+		logger.info("winorlose:{}",recordDTO.getWinorlose());
+		
+		String userId= (String)session.getAttribute("userid");
+		logger.info("userId:{}",userId);
+		recordDTO.setUserid(userId);
+		
+		//가위바위보 -> gamecode:2
+		recordDTO.setGamecode("2");
+		
+		recordService.postRPS(recordDTO);
+		
+		return "";
+	}
 }

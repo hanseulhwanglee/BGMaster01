@@ -12,10 +12,16 @@ public class RecordServiceImpl implements RecordService {
 	@Autowired
 	private RecordDAO recordDAO;
 	
-	//---------기록 저장---------
+	//-----updown 기록저장-----
 	@Override
-	public void postRecord(RecordDTO recordDTO) throws Exception {
-		recordDAO.postRecord(recordDTO);
+	public void postUpdown(RecordDTO recordDTO) throws Exception {
+		recordDAO.postUpdown(recordDTO);
+	}
+	
+	//-----가위바위보 기록저장-----
+	@Override
+	public void postRPS(RecordDTO recordDTO)throws Exception{
+		recordDAO.postRPS(recordDTO);
 	}
 
 }

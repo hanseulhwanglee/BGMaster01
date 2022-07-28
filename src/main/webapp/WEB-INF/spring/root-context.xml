@@ -17,8 +17,8 @@
 		 id="dataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
 		<!-- <property name="url" value="jdbc:mariadb://127.0.0.1:3306/"/> --> <!--데이터베이스명-->
-		<property name="url" value="jdbc:postgresql://127.0.0.1:5432/postgres"/> <!--데이터베이스명-->
-		<property name="username" value="kyu" /><!--계정 ID 추가--> 
+		<property name="url" value="jdbc:postgresql://127.0.0.1:5432/gittest"/> <!--데이터베이스명-->
+		<property name="username" value="postgres" /><!--계정 ID 추가--> 
 		<property name="password" value="1234" /><!--비밀번호 추가-->
 	</bean>
 			

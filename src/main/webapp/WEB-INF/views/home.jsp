@@ -16,12 +16,18 @@
 <a href="/member/login">로그인</a>
 <a href="/member/signup">회원가입</a>
 <a href="/member/logout">로그아웃</a>
-<a href="/game/updown">게임_UPDOWN</a>
+<br>
+<label>게임 : </label>
+<a href="/game/updown">UPDOWN</a>
+<a href="/game/RPS">가위바위보</a>
 
 <h4> root-context에서 DB 설정하세요</h4>
 <h4>
 - Board CRUD <br>
 - Login, Logout, Signup<br>
+- Game : Ajax, 결과 record <br>
+1. UpDown : Stopwatch, Counting<br>
+2. Rock-Paper-Scissors: win-lose-tie <br>
 </h4>
 
 

@@ -2,7 +2,7 @@
 1.updown 카운팅 기능 추가
 2.updown 타이머 기능 추가
 3.기록 저장 기능 추가
-4.RecodeDTO 추가
+4.RecordDTO 추가
 
 #220726
 1. Record메서드 추가
@@ -12,3 +12,11 @@
 1. record테이블 추가
 2. RecordDAO, RecordService, RecordMapper추가
 3. 기록저장 시 알림창 기능 추가
+
+#220728 슬
+1. 가위바위보 게임 추가(RPS : Rock-Paper-Scissors)
+2. tbl_record column winorlose를 varchar(10)으로 변경
+3. 나머지 기능은 updown 게임과 동일
+4. RecordDTO에서 winOrlose -> winorlose로 변경
+5. RecordDAO, RecordService에서 postRecord를 postUpdown, postRPS로 변경
+6. gameMapper에서 id="recordInsert"를 "recordInsertUP", "recordInsertRPS"로 변경

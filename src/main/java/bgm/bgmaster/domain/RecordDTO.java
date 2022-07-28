@@ -17,7 +17,7 @@ public class RecordDTO {
 	private String userid;
 	private String gamecode;
 	private String connectTime;
-	private String winOrlose;
+	private String winorlose;
 	private String recordTime;
 	private String recordCount;
 
@@ -27,74 +27,51 @@ public class RecordDTO {
 	public String getUserid() {
 		return userid;
 	}
-
-
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-
-
 	public String getGamecode() {
 		return gamecode;
 	}
-
-
 	public void setGamecode(String gamecode) {
 		this.gamecode = gamecode;
 	}
-
-
 	public String getConnectTime() {
 		return connectTime;
 	}
-
-
 	public void setConnectTime(String connectTime) {
 		this.connectTime = connectTime;
 	}
-
-
-	public String getWinOrlose() {
-		return winOrlose;
+	public String getWinorlose() {
+		return winorlose;
 	}
-
-
-	public void setWinOrlose(String winOrlose) {
-		this.winOrlose = winOrlose;
+	public void setWinorlose(String winorlose) {
+		this.winorlose = winorlose;
 	}
-
-
 	public String getRecordTime() {
 		return recordTime;
 	}
-
-
 	public void setRecordTime(String recordTime) {
 		this.recordTime = recordTime;
 	}
-
-
 	public String getRecordCount() {
 		return recordCount;
 	}
-
-
 	public void setRecordCount(String recordCount) {
 		this.recordCount = recordCount;
 	}
 
 	//---------Constructor---------
 	public RecordDTO() {	//기본생성자
-		
 	}
 
-	public RecordDTO(String userid, String gamecode, String connectTime, String winOrlose, String recordTime,
+	public RecordDTO(String userid, String gamecode, String connectTime, String winorlose, String recordTime,
 			String recordCount) {
 		super();
 		this.userid = userid;
 		this.gamecode = gamecode;
 		this.connectTime = connectTime;
-		this.winOrlose = winOrlose;
+		this.winorlose = winorlose;
 		this.recordTime = recordTime;
 		this.recordCount = recordCount;
 	}
@@ -104,7 +81,7 @@ public class RecordDTO {
 	@Override
 	public String toString() {
 		return "RecordDTO [userid=" + userid + ", gamecode=" + gamecode + ", connectTime=" + connectTime
-				+ ", winOrlose=" + winOrlose + ", recordTime=" + recordTime + ", recordCount=" + recordCount + "]";
+				+ ", winorlose=" + winorlose + ", recordTime=" + recordTime + ", recordCount=" + recordCount + "]";
 	}
 
 }

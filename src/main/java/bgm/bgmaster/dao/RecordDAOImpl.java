@@ -15,10 +15,16 @@ public class RecordDAOImpl implements RecordDAO {
 	private static final String NAMESPACE = "BGMaster.gameMapper";
 	
 	
-	//-------기록 저장-----
+	//-----updown 기록저장-----
 	@Override
-	public void postRecord(RecordDTO recordDTO) throws Exception {
-		sql.insert(NAMESPACE+".recordInsert",recordDTO);
+	public void postUpdown(RecordDTO recordDTO) throws Exception {
+		sql.insert(NAMESPACE+".recordInsertUD",recordDTO);
+	}
+	
+	//-----가위바위보 기록저장-----
+	@Override
+	public void postRPS(RecordDTO recordDTO)throws Exception{
+		sql.insert(NAMESPACE+".recordInsertRPS",recordDTO);
 	}
 
 }

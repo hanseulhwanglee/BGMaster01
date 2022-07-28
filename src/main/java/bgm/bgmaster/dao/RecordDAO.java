@@ -5,5 +5,9 @@ import bgm.bgmaster.domain.RecordDTO;
 public interface RecordDAO {
 
 	//-----updown 기록저장-----
-	public void postRecord(RecordDTO recordDTO)throws Exception;
+	public void postUpdown(RecordDTO recordDTO)throws Exception;
+	
+	
+	//-----가위바위보 기록저장-----
+	public void postRPS(RecordDTO recordDTO)throws Exception;
 }

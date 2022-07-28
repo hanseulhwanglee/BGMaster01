@@ -11,3 +11,4 @@
 #220728
 1. record테이블 추가
 2. RecordDAO, RecordService, RecordMapper추가
+3. 기록저장 시 알림창 기능 추가

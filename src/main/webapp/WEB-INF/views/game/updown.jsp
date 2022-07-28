@@ -29,6 +29,7 @@
 
 
     <input type="button" value="시작" class="start_button" onclick="makeRanNum()"/><br>
+    <input type="button" value="초기화" class="reset_button" onclick="reset()"/><br>
 	<input type="text" id= "inputNum" name="inputNum" class="inputNum" placeholder="1~10 사이의 숫자를 입력하세요"/><br>
     <input type="button" value="확인" class="submit_button" onclick="answer_check()"/><br>
     
@@ -57,6 +58,12 @@
 	function makeRanNum(){
 		startClock();	//스탑워치 실행
 		randomNum = (parseInt)(Math.random()*1 +1);
+		total_count = 0;	//시작과 동시에 시도횟수 전역변수를 0으로 초기화
+		document.querySelector("#try_count").innerText=total_count;
+	}
+	
+	function reset(){
+		resetClock();	//스탑워치 실행
 		total_count = 0;	//시작과 동시에 시도횟수 전역변수를 0으로 초기화
 		document.querySelector("#try_count").innerText=total_count;
 	}
@@ -90,7 +97,7 @@
 			data : {"recordCount" : total_count,"recordTime" : timerId}, //전송할 데이터 
 			//data : "recodeCount="+total_count+"&recodeTime="+timerId, 
 			success : function(a){
-				
+				alert("${userId}님의 기록이 저장되었습니다!\n"+"시도 횟수:"+total_count+"\n"+"경과시간:"+timerId+"(초)");
 			}
 		});
 

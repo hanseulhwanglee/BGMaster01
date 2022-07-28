@@ -1,0 +1,13 @@
+#220725
+1.updown 카운팅 기능 추가
+2.updown 타이머 기능 추가
+3.기록 저장 기능 추가
+4.RecodeDTO 추가
+
+#220726
+1. Record메서드 추가
+2. Ajax구현(updown게임-> jsp에서 controller로 값 넘김)
+
+#220728
+1. record테이블 추가
+2. RecordDAO, RecordService, RecordMapper추가

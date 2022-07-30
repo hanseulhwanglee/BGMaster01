@@ -1,7 +1,5 @@
 package bgm.bgmaster.service;
 
-import org.springframework.stereotype.Service;
-
 import bgm.bgmaster.domain.RecordDTO;
 
 public interface RecordService {

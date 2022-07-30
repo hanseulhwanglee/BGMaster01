@@ -2,6 +2,8 @@ package bgm.bgmaster.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import bgm.bgmaster.domain.BoardDTO;
 import bgm.bgmaster.domain.MemberDTO;
 import bgm.bgmaster.service.MemberService;
 
@@ -21,6 +22,8 @@ public class MemberController {
 
 	@Autowired
 	private MemberService service;
+	
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
 	//--------회원가입 signup_GET--------
 	@GetMapping(value = "/signup")
@@ -45,12 +48,15 @@ public class MemberController {
 	@ResponseBody
 	@PostMapping(value = "/login")
 	public int postLogin(MemberDTO dto, HttpSession session) throws Exception{
+		logger.info("로그인_POST진입");
 		int result = service.postLogin(dto);
+		logger.info("로그인_POST진입___1");
 		
 		if(result == 1) {
 			session.setAttribute("userid", dto.getUserid());
 		}
 		
+		logger.info("로그인_POST진입___2");
 		System.out.println("login info result : "+result);
 		return result;
 	}

@@ -28,7 +28,7 @@ public class GameController {
 	@GetMapping(value="/updown")
 	public void getUpdown(Model model, HttpSession session) throws Exception{
 		logger.info("session.getAttribute(userid):{}",session.getAttribute("userid"));
-		model.addAttribute("userId", session.getAttribute("userid"));
+		model.addAttribute("userid", session.getAttribute("userid"));
 		
 	}
 	
@@ -44,9 +44,9 @@ public class GameController {
 		logger.info("recordTime:{}",recordDTO.getRecordTime());
 		logger.info("recordCount:{}",recordDTO.getRecordCount());
 		
-		String userId= (String)session.getAttribute("userid");
-		logger.info("userId:{}",userId);
-		recordDTO.setUserid(userId);
+		String userid= (String)session.getAttribute("userid");
+		logger.info("userid:{}",userid);
+		recordDTO.setUserid(userid);
 		
 		//updown -> gamecode:1
 		recordDTO.setGamecode("1");
@@ -61,7 +61,7 @@ public class GameController {
 	@GetMapping(value="/RPS")
 	public void getRPS(Model model, HttpSession session) throws Exception{
 		logger.info("session.getAttribute(userid):{}",session.getAttribute("userid"));
-		model.addAttribute("userId", session.getAttribute("userid"));
+		model.addAttribute("userid", session.getAttribute("userid"));
 		
 	}
 	
@@ -69,17 +69,19 @@ public class GameController {
 	//----------------가위바위보 게임_POST----------------
 	@ResponseBody
 	@PostMapping(value="/RPS")
-	public String postRPS(RecordDTO recordDTO, HttpSession session) throws Exception{
+	public String postRPS(RecordDTO recordDTO, Model model, HttpSession session) throws Exception{
 		
 		logger.info("가위바위보 게임_POST 진입");
 		//logger.info("a:{}",a); 
 		//logger.info("b:{}",b);
 		logger.info("winorlose:{}",recordDTO.getWinorlose());
 		
-		String userId= (String)session.getAttribute("userid");
-		logger.info("userId:{}",userId);
-		recordDTO.setUserid(userId);
+		String userid= (String)session.getAttribute("userid");
+		logger.info("userid:{}",userid);
+		recordDTO.setUserid(userid);
 		
+		// 2200730_kyu
+		model.addAttribute("userid",userid);
 		//가위바위보 -> gamecode:2
 		recordDTO.setGamecode("2");
 		

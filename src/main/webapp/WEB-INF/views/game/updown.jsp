@@ -13,6 +13,21 @@
 <script type="text/javascript"> 
 </script> -->
 
+<!-- 2200730_kyu -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	var userid = '${userid}';
+	$(document).ready(function(){
+		if(userid !=""){
+			$("#logout").show(); // show
+			document.getElementById('login').style.visibility = "hidden"; // hide
+			
+		}
+		
+	})
+
+</script>
 	
 
 
@@ -20,7 +35,8 @@
 
 <hr>
 <a href="/">홈</a>
-<a href="/member/login">로그인</a>
+<a id=login href="/member/login">로그인</a>
+<a id=logout href="/member/logout">로그아웃</a>
 <a href="/board/write">글 작성</a>
 
 <hr>

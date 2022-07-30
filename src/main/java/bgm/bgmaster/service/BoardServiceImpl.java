@@ -5,10 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import bgm.bgmaster.domain.BoardDTO;
-
 import bgm.bgmaster.dao.BoardDAO;
-import bgm.bgmaster.service.BoardService;
+import bgm.bgmaster.domain.BoardDTO;
 
 @Service
 public class BoardServiceImpl  implements BoardService{

@@ -5,7 +5,32 @@
 <head>
 	<title>Home</title>
 </head>
+
+<style>
+	#logout{
+		display:none;
+	}
+
+</style>
+
 <body>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	var userid = '${userid}';
+	$(document).ready(function(){
+		if(userid !=""){
+			$("#logout").show(); // show
+			document.getElementById('login').style.visibility = "hidden"; // hide
+			document.getElementById('sigup').style.visibility = "hidden"; // hide
+			
+		}
+		
+	})
+
+</script>
+
 <h1>
 	Hello world!  BGMaster
 </h1>
@@ -13,9 +38,9 @@
 <P>  The time on the server is ${serverTime}. </P>
 
 <a href="/board/list">리스트</a>
-<a href="/member/login">로그인</a>
-<a href="/member/signup">회원가입</a>
-<a href="/member/logout">로그아웃</a>
+<a id=login href="/member/login">로그인</a>
+<a id=sigup href="/member/signup">회원가입</a>
+<a id=logout href="/member/logout">로그아웃</a>
 <br>
 <label>게임 : </label>
 <a href="/game/updown">UPDOWN</a>

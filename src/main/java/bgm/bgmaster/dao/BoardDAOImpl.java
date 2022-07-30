@@ -8,8 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import bgm.bgmaster.domain.BoardDTO;
 
-import bgm.bgmaster.dao.BoardDAO;
-
 @Repository
 public class BoardDAOImpl implements BoardDAO{
 

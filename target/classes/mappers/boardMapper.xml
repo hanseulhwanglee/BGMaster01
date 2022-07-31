@@ -7,13 +7,13 @@
 
 	<!-- 리스트 호출 list-->
 	<select id="selectlist" resultType="bgm.bgmaster.domain.BoardDTO">
-		SELECT bno, title, content, writer, regDate, viewCnt, filename, filesize
+		SELECT bno, title, content, writer, reg_date, view_cnt, file_name, file_size
 		FROM public.tbl_board
 	</select>
 	
 	<!-- 게시글 내용 보기 view-->
 	<select id="view" parameterType="bgm.bgmaster.domain.BoardDTO" resultType="bgm.bgmaster.domain.BoardDTO">
-		SELECT bno, title, content, writer, regDate, viewCnt, filename, filesize
+		SELECT bno, title, content, writer, reg_date, view_cnt, file_name, file_size
 		FROM public.tbl_board
 		WHERE bno=#{bno}
 	</select>

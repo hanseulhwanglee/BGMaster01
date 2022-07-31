@@ -2,28 +2,24 @@ package bgm.bgmaster.domain;
 
 public class MemberDTO {
 	
-	/*create table test.schematest.tbl_member(
-			userid varchar(20) not null primary key,
-			username varchar(20) null,
-			userpassword varchar(20) null,
-			telno varchar(20) null,
-			email varchar(30) null,
-			regdate timestamp null DEFAULT CURRENT_TIMESTAMP,
-			authority_code varchar(1) null default '0',
-<<<<<<< Updated upstream
-			gender varchar(10) null default '0'
-=======
-			gender varchar(1) null default '0',
->>>>>>> Stashed changes
-			birthday varchar(10) null
-		);*/
+	/*create table public.tbl_member(
+	userid varchar(20) not null primary key,
+	username varchar(20) null,
+	userpassword varchar(20) null,
+	telno varchar(20) null,
+	email varchar(30) null,
+	reg_date timestamp null DEFAULT CURRENT_TIMESTAMP,
+	authority_code varchar(1) null default '0',
+	gender varchar(10) null default '0',
+	birthday varchar(10) null
+);*/
 	
 	private String userid;
 	private String username;
 	private String userpassword;
 	private String telno;
 	private String email;
-	private String regdate;
+	private String reg_date;
 	private String authority_code;
 	private String gender;
 	private String birthday;
@@ -61,10 +57,10 @@ public class MemberDTO {
 		this.email = email;
 	}
 	public String getRegdate() {
-		return regdate;
+		return reg_date;
 	}
 	public void setRegdate(String regdate) {
-		this.regdate = regdate;
+		this.reg_date = regdate;
 	}
 	public String getAuthority_code() {
 		return authority_code;
@@ -96,7 +92,7 @@ public class MemberDTO {
 		this.userpassword = userpassword;
 		this.telno = telno;
 		this.email = email;
-		this.regdate = regdate;
+		this.reg_date = regdate;
 		this.authority_code = authority_code;
 		this.gender = gender;
 		this.birthday = birthday;
@@ -106,7 +102,7 @@ public class MemberDTO {
 	@Override
 	public String toString() {
 		return "MemberDTO [userid=" + userid + ", username=" + username + ", userpassword=" + userpassword + ", telno="
-				+ telno + ", email=" + email + ", regdate=" + regdate + ", authority_code=" + authority_code
+				+ telno + ", email=" + email + ", regdate=" + reg_date + ", authority_code=" + authority_code
 				+ ", gender=" + gender + ", birthday=" + birthday + "]";
 	}
 

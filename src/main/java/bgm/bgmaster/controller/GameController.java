@@ -27,7 +27,7 @@ public class GameController {
 	//----------------updown게임 페이지 이동_GET -----------------------
 	@GetMapping(value="/updown")
 	public void getUpdown(Model model, HttpSession session) throws Exception{
-		logger.info("session.getAttribute(userid):{}",session.getAttribute("userid"));
+		//logger.info("session.getAttribute(userid):{}",session.getAttribute("userid"));
 		model.addAttribute("userid", session.getAttribute("userid"));
 		
 	}
@@ -38,18 +38,16 @@ public class GameController {
 	@PostMapping(value="/updown")
 	public String postUpdown(RecordDTO recordDTO, HttpSession session/*, @RequestParam(name ="recordCount") String a, @RequestParam(name ="recordTime") String b */) throws Exception{
 		
-		logger.info("updown게임_POST 진입");
-		//logger.info("a:{}",a);
-		//logger.info("b:{}",b);
-		logger.info("recordTime:{}",recordDTO.getRecordTime());
-		logger.info("recordCount:{}",recordDTO.getRecordCount());
+		//logger.info("updown게임_POST 진입");
+		//logger.info("recordTime:{}",recordDTO.getRecordTime());
+		//logger.info("recordCount:{}",recordDTO.getRecordCount());
 		
 		String userid= (String)session.getAttribute("userid");
-		logger.info("userid:{}",userid);
+		//logger.info("userid:{}",userid);
 		recordDTO.setUserid(userid);
 		
 		//updown -> gamecode:1
-		recordDTO.setGamecode("1");
+		recordDTO.setGame_code("1");
 		
 		recordService.postUpdown(recordDTO);
 		
@@ -60,7 +58,7 @@ public class GameController {
 	//----------------가위바위보 게임 페이지 이동_GET -----------------------
 	@GetMapping(value="/RPS")
 	public void getRPS(Model model, HttpSession session) throws Exception{
-		logger.info("session.getAttribute(userid):{}",session.getAttribute("userid"));
+		//logger.info("session.getAttribute(userid):{}",session.getAttribute("userid"));
 		model.addAttribute("userid", session.getAttribute("userid"));
 		
 	}
@@ -71,19 +69,17 @@ public class GameController {
 	@PostMapping(value="/RPS")
 	public String postRPS(RecordDTO recordDTO, Model model, HttpSession session) throws Exception{
 		
-		logger.info("가위바위보 게임_POST 진입");
-		//logger.info("a:{}",a); 
-		//logger.info("b:{}",b);
-		logger.info("winorlose:{}",recordDTO.getWinorlose());
+		//logger.info("가위바위보 게임_POST 진입");
+		//logger.info("winorlose:{}",recordDTO.getWinorlose());
 		
 		String userid= (String)session.getAttribute("userid");
-		logger.info("userid:{}",userid);
+		//logger.info("userid:{}",userid);
 		recordDTO.setUserid(userid);
 		
 		// 2200730_kyu
 		model.addAttribute("userid",userid);
 		//가위바위보 -> gamecode:2
-		recordDTO.setGamecode("2");
+		recordDTO.setGame_code("2");
 		
 		recordService.postRPS(recordDTO);
 		

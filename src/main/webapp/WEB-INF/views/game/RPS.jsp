@@ -17,9 +17,7 @@
 		if(userid !=""){
 			$("#logout").show(); // show
 			document.getElementById('login').style.visibility = "hidden"; // hide
-			
 		}
-		
 	})
 
 </script>
@@ -28,11 +26,6 @@
 <script type="text/javascript">
 	var result = null; //winorlose 
 
-/* 	function makeRanNum(){
-		randomNum = (parseInt)(Math.random()*3);
-		//var result ;
-	} */
-	
 	function answer_check() {
 		
 		randomNum = (parseInt)(Math.random()*3);
@@ -54,26 +47,20 @@
 			else if($('input:radio[name="input"]:checked').val() =="2"){alert("컴퓨터: 보 \n "+"비겼습니다!"); result="tie";}
 			break;
 		}
-		console.log("result : " + result);
-		$("#record_btn").show(); // 기록 제출 버튼 show
-	}
-	
-	function submit_record(){
-
-		console.log("제출 버튼 실행");
-		console.log("제출 result 실행------->"+result);
-		
+		//console.log("result : " + result);
+		//$("#record_btn").show(); // 기록 제출 버튼 show
 		$.ajax({
 			url : "/game/RPS", //전송할 url
 			type : "post", //전송할 메서드 타입
 			dataType : "text", //받을 데이터 타입 안정하면 기본 xml형식
-			data : {"winorlose" : result}, //전송할 데이터 
+			data : {"win_or_lose" : result}, //전송할 데이터 
 			success : function(a){
-				alert("${userId}님의 기록이 저장되었습니다!\n"+"승패 결과 : "+result);
+				alert("${userid}님의 기록이 저장되었습니다!\n"+"승패 결과 : "+result);
+				location.href = "/game/RPS";
 			}
 		});
-
 	}
+	
 
 </script>
 
@@ -89,7 +76,7 @@
 
 <hr>
 <br>
-<div id="login_message">${userId}님! 환영합니다!</div> <br>
+<div id="login_message">${userid}님! 환영합니다!</div> <br>
 
 	
 
@@ -105,7 +92,5 @@
     
     <input type="button" value="확인" id="submit_button" class="submit_button" onclick="answer_check()"/><br>
 
-	<input type="button" style="display:none" id="record_btn" class="record_btn" value="기록저장" onclick="submit_record()">
-	
 </body>
 </html>

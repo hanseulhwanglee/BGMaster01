@@ -9,10 +9,6 @@
 
 <body>
 
-<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script type="text/javascript"> 
-</script> -->
-
 <!-- 2200730_kyu -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -22,11 +18,8 @@
 		if(userid !=""){
 			$("#logout").show(); // show
 			document.getElementById('login').style.visibility = "hidden"; // hide
-			
 		}
-		
 	})
-
 </script>
 	
 
@@ -41,18 +34,17 @@
 
 <hr>
 <br>
-<div id="login_message">${userId}님! 환영합니다!</div> <br>
-
+<div id="login_message">${userid}님! 환영합니다!</div> <br>
 
     <input type="button" value="시작" class="start_button" onclick="makeRanNum()"/><br>
-    <input type="button" value="초기화" class="reset_button" onclick="reset()"/><br>
 	<input type="text" id= "inputNum" name="inputNum" class="inputNum" placeholder="1~10 사이의 숫자를 입력하세요"/><br>
     <input type="button" value="확인" class="submit_button" onclick="answer_check()"/><br>
+    <input type="button" value="초기화" class="reset_button" onclick="reset()"/><br>
     
     
    <form id="record_form" name="record_form" method="post"> 
 	    <!-- 총 시도 횟 수를 script의 변수의 값을 넣을 태그 -->
-	    <div>${userId}님의 총 시도 횟수:</div>
+	    <div>${userid}님의 총 시도 횟수:</div>
 		<div id="try_count" class="try_count" name="recordCount"></div>
 			
 		<!-- 타이머 기록을 담을 태그 -->
@@ -63,7 +55,6 @@
 	    </h1>
 		<br>	
 		
-    	<input type="button" style="display:none" id="record_btn" class="record_btn" value="기록저장" onclick="submit_record()">
 	</form>
 	
 	<!-- ========================================스크립트_게임 알고리즘================================================= -->
@@ -93,31 +84,21 @@
 		if($("#inputNum").val() > randomNum){alert("DOWN!");$("#inputNum").focus(); return false;}
 		if($("#inputNum").val() == randomNum){
 			stopClock();	//정답을 맞출 시 타이머 정지
-			$("#record_btn").show();  // show
 			alert("정답입니다!");
+			$.ajax({
+				url : "/game/updown", //전송할 url
+				type : "post", //전송할 메서드 타입
+				dataType : "text", //받을 데이터 타입 안정하면 기본 xml형식
+				data : {"record_cnt" : total_count,"record_time" : timerId}, //전송할 데이터 
+				success : function(a){
+					alert("${userid}님의 기록이 저장되었습니다!\n"+"시도 횟수:"+total_count+"\n"+"경과시간:"+timerId+"(초)");
+					location.href = "/game/updown";
+				}
+			});
 			console.log("this.total_count"+total_count);
 		}
-			//document.getElementById('record_btn').style.visibility = "block";	//기록저장 버튼 보이기
-		
 	}
-	
-	function submit_record(){
-		console.log("제출 버튼 실행");
-		console.log("제출 total_count 실행------->"+total_count);
-		console.log("제출 버튼 timerId실행------>" +timerId);
 
-		$.ajax({
-			url : "/game/updown", //전송할 url
-			type : "post", //전송할 메서드 타입
-			dataType : "text", //받을 데이터 타입 안정하면 기본 xml형식
-			data : {"recordCount" : total_count,"recordTime" : timerId}, //전송할 데이터 
-			//data : "recodeCount="+total_count+"&recodeTime="+timerId, 
-			success : function(a){
-				alert("${userId}님의 기록이 저장되었습니다!\n"+"시도 횟수:"+total_count+"\n"+"경과시간:"+timerId+"(초)");
-			}
-		});
-
-	}
 
 	</script>
 

@@ -48,16 +48,16 @@ public class MemberController {
 	@ResponseBody
 	@PostMapping(value = "/login")
 	public int postLogin(MemberDTO dto, HttpSession session) throws Exception{
-		logger.info("로그인_POST진입");
+		//logger.info("로그인_POST진입");
 		int result = service.postLogin(dto);
-		logger.info("로그인_POST진입___1");
+		//logger.info("로그인_POST진입___1");
 		
 		if(result == 1) {
 			session.setAttribute("userid", dto.getUserid());
 		}
 		
-		logger.info("로그인_POST진입___2");
-		System.out.println("login info result : "+result);
+		//logger.info("로그인_POST진입___2");
+		//System.out.println("login info result : "+result);
 		return result;
 	}
 	

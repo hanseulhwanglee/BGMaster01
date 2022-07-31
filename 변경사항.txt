@@ -1,17 +1,16 @@
-#220725
-1.updown 카운팅 기능 추가
-2.updown 타이머 기능 추가
-3.기록 저장 기능 추가
-4.RecordDTO 추가
 
-#220726
-1. Record메서드 추가
-2. Ajax구현(updown게임-> jsp에서 controller로 값 넘김)
+#220731 슬
+1. Game 기록제출 버튼을 정답 체크 버튼과 통합
+2. RPS.jsp, updown.jsp에서도 userId를 userid로 수정
+3. DB(tbl_board, tbl_member, tbl_record)의 Column을 스네이크 표기법으로 변경
+	- tbl_board : reg_date, view_cnt, file_name, file_size
+	- tbl_member : reg_date
+	- tbl_record : game_code, connect_time, win_or_lose, record_time, record_cnt
+	- public.tbl_record.sql 이름을 public.tables.sql로 변경 --> 테이블 create문 저장
 
-#220728
-1. record테이블 추가
-2. RecordDAO, RecordService, RecordMapper추가
-3. 기록저장 시 알림창 기능 추가
+#220730 규
+1. 로그인시 로그인, 회원가입 탭 숨김, 로그아웃 탭 보여짐 기능 추가
+2. GameController 에서 userId를 -> userid로 수정 
 
 #220728 슬
 1. 가위바위보 게임 추가(RPS : Rock-Paper-Scissors)
@@ -21,7 +20,18 @@
 5. RecordDAO, RecordService에서 postRecord를 postUpdown, postRPS로 변경
 6. gameMapper에서 id="recordInsert"를 "recordInsertUP", "recordInsertRPS"로 변경
 
+#220728 규
+1. record테이블 추가
+2. RecordDAO, RecordService, RecordMapper추가
+3. 기록저장 시 알림창 기능 추가
 
-#220730 규
-1. 로그인시 로그인, 회원가입 탭 숨김, 로그아웃 탭 보여짐 기능 추가
-2. GameController 에서 userId를 -> userid로 수정
+#220726 규
+1. Record메서드 추가
+2. Ajax구현(updown게임-> jsp에서 controller로 값 넘김)
+
+#220725 규
+1.updown 카운팅 기능 추가
+2.updown 타이머 기능 추가
+3.기록 저장 기능 추가
+4.RecordDTO 추가
+

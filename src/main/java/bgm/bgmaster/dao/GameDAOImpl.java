@@ -4,10 +4,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import bgm.bgmaster.domain.RecordDTO;
+import bgm.bgmaster.domain.GameDTO;
 
 @Repository
-public class RecordDAOImpl implements RecordDAO {
+public class GameDAOImpl implements GameDAO {
 
 	@Autowired
 	private SqlSession sql;
@@ -17,14 +17,14 @@ public class RecordDAOImpl implements RecordDAO {
 	
 	//-----updown 기록저장-----
 	@Override
-	public void postUpdown(RecordDTO recordDTO) throws Exception {
-		sql.insert(NAMESPACE+".recordInsertUD",recordDTO);
+	public void postUpdown(GameDTO gameDTO) throws Exception {
+		sql.insert(NAMESPACE+".recordInsertUD",gameDTO);
 	}
 	
 	//-----가위바위보 기록저장-----
 	@Override
-	public void postRPS(RecordDTO recordDTO)throws Exception{
-		sql.insert(NAMESPACE+".recordInsertRPS",recordDTO);
+	public void postRPS(GameDTO gameDTO)throws Exception{
+		sql.insert(NAMESPACE+".recordInsertRPS",gameDTO);
 	}
 
 }

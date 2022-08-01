@@ -5,13 +5,13 @@
 <mapper namespace="BGMaster.gameMapper">
 
 	<!-- 기록저장 -->
-	<insert id="recordInsertUD" parameterType="bgm.bgmaster.domain.RecordDTO">
+	<insert id="recordInsertUD" parameterType="bgm.bgmaster.domain.GameDTO">
 		INSERT into public.tbl_record (userid, game_code, record_time, record_cnt)
 		VALUES (#{userid}, #{game_code}, #{record_time}, #{record_cnt})
 	</insert>
 
 	<!-- 기록저장 -->
-	<insert id="recordInsertRPS" parameterType="bgm.bgmaster.domain.RecordDTO">
+	<insert id="recordInsertRPS" parameterType="bgm.bgmaster.domain.GameDTO">
 		INSERT into public.tbl_record (userid, game_code, win_or_lose)
 		VALUES (#{userid}, #{game_code}, #{win_or_lose})
 	</insert>

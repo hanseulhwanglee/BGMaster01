@@ -1,6 +1,6 @@
 package bgm.bgmaster.domain;
 
-public class RecordDTO {
+public class GameDTO {
 
 	/*
 		CREATE TABLE public.tbl_record (
@@ -71,10 +71,10 @@ public class RecordDTO {
 	}
 	
 	//---------Constructor---------
-	public RecordDTO() {	//기본생성자
+	public GameDTO() {	//기본생성자
 	}
 
-	public RecordDTO(String userid, String game_code, String connect_time, String win_or_lose, String record_time,
+	public GameDTO(String userid, String game_code, String connect_time, String win_or_lose, String record_time,
 			String record_cnt) {
 		super();
 		this.userid = userid;

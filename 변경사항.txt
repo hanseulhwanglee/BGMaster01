@@ -1,3 +1,9 @@
+#220808 슬
+1. 게임 통계 record.jsp - 전체 보기/ gameCode.jsp - 게임코드 별 리스트 보기
+2. 게임 통계 record2.jsp(진행중) -Ajax로 기록 전체보기, 게임 코드별 리스트 보기
+3. 추가
+	- RecordController, RecordDAO, RecordDAOImpl, RecordDTO, RecordService
+	  RecordServiceImpl, recordMapper, record.jsp, gameCode.jsp, record2.jsp
 
 #220731 슬
 1. Game 기록제출 버튼을 정답 체크 버튼과 통합

@@ -45,6 +45,8 @@
 <label>게임 : </label>
 <a href="/game/updown">UPDOWN</a>
 <a href="/game/RPS">가위바위보</a>
+<a href="/record/record">결과통계</a>
+<a href="/record/record2">결과통계-Ajax(진행중)</a>
 
 <h4> root-context에서 DB 설정하세요</h4>
 <h4>
@@ -53,6 +55,7 @@
 - Game : Ajax, 결과 record <br>
 1. UpDown : Stopwatch, Counting<br>
 2. Rock-Paper-Scissors: win-lose-tie <br>
+- 통계(진행중)  <br>
 </h4>
 
 

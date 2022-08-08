@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BGMaster.recordMapper">
+
+	
+	<!-- 기록 전체 호출 -->
+	<select id="whole_list" resultType="bgm.bgmaster.domain.RecordDTO">
+		SELECT *
+		FROM schematest.tbl_record
+	</select>
+	
+	<!-- 기록 게임별 호출 -->
+ 	<select id="code_list" resultType="bgm.bgmaster.domain.RecordDTO">
+		SELECT userid, game_code, win_or_lose, record_time, record_cnt, connect_time
+		FROM schematest.tbl_record
+		WHERE game_code= #{code}
+	</select>
+	
+	<!-- 기록 게임별 호출 Ajax -->
+ 	<select id="code_list_ajax" resultType="bgm.bgmaster.domain.RecordDTO">
+		SELECT userid, game_code, win_or_lose, record_time, record_cnt, connect_time
+		FROM schematest.tbl_record
+		WHERE game_code= #{gamecode}
+	</select>
+	
+</mapper>
+
+

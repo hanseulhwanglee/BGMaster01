@@ -30,6 +30,13 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
+	<!-- 소켓 서버 -->
+	<servlet>
+		<servlet-name>WARINGSOCKET</servlet-name>
+		<servlet-class>bgm.bgmaster.ex.WaringSocketServer</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
 <!-- 문자 인코딩 시작 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>

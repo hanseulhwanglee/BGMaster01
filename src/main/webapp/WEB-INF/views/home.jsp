@@ -45,6 +45,7 @@
 <label>게임 : </label>
 <a href="/game/updown">UPDOWN</a>
 <a href="/game/RPS">가위바위보</a>
+<a href="/ex/echo">채팅</a>
 <a href="/record/record">결과통계</a>
 <a href="/record/record2">결과통계-Ajax(진행중)</a>
 

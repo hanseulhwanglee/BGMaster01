@@ -54,6 +54,7 @@
 - Board CRUD <br>
 - Login, Logout, Signup<br>
 - Game : Ajax, 결과 record <br>
+- Chat : Socket <br>
 1. UpDown : Stopwatch, Counting<br>
 2. Rock-Paper-Scissors: win-lose-tie <br>
 - 통계(진행중)  <br>

@@ -45,19 +45,25 @@
 <label>게임 : </label>
 <a href="/game/updown">UPDOWN</a>
 <a href="/game/RPS">가위바위보</a>
+<br>
 <a href="/ex/echo">채팅</a>
+<br>
 <a href="/record/record">결과통계</a>
 <a href="/record/record2">결과통계-Ajax(진행중)</a>
 
 <h4> root-context에서 DB 설정하세요</h4>
 <h4>
-- Board CRUD <br>
-- Login, Logout, Signup<br>
+- Board CRUD <br><br>
+
+- Login, Logout, Signup<br><br>
+
 - Game : Ajax, 결과 record <br>
-- Chat : Socket <br>
-1. UpDown : Stopwatch, Counting<br>
-2. Rock-Paper-Scissors: win-lose-tie <br>
-- 통계(진행중)  <br>
+Game 1. UpDown : Stopwatch, Counting<br>
+Game 2. Rock-Paper-Scissors: win-lose-tie <br><br>
+
+- 통계(진행중)  <br><br>
+
+- Chat : Socket <br><br>
 </h4>
 
 

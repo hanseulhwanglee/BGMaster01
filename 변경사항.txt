@@ -1,9 +1,26 @@
+#220809 슬
+1. 게임 수정
+- 가위바위보 : 이미지 추가, alert 삭제 후 요소 노드 생성 
+- UpDown : alert 삭제 후 요소 노드 생성
+*요소 노드 생성 참고 : http://www.tcpschool.com/examples/tryit/tryhtml.php?filename=js_dom_nodeManage_04
+
+#220808 규
+1. 채팅 기능 추가
+- pom.xml, web.xml, servlet-context.xml에 추가
+- bgm.bgmaster.ex 추가 : EchoHandler, WaringSocketServer
+- views-ex 추가 : echo.jsp
+
+
 #220808 슬
 1. 게임 통계 record.jsp - 전체 보기/ gameCode.jsp - 게임코드 별 리스트 보기
 2. 게임 통계 record2.jsp(진행중) -Ajax로 기록 전체보기, 게임 코드별 리스트 보기
 3. 추가
 	- RecordController, RecordDAO, RecordDAOImpl, RecordDTO, RecordService
 	  RecordServiceImpl, recordMapper, record.jsp, gameCode.jsp, record2.jsp
+
+#220801 슬
+1. RecordDAO, RecordService, RecordDTO를 GameDAO, GameService, GameDTO로 이름 변경
+2. gameMapper 수정
 
 #220731 슬
 1. Game 기록제출 버튼을 정답 체크 버튼과 통합

@@ -38,9 +38,10 @@
 
     <input type="button" value="시작" class="start_button" onclick="makeRanNum()"/><br>
 	<input type="text" id= "inputNum" name="inputNum" class="inputNum" placeholder="1~10 사이의 숫자를 입력하세요"/><br>
-    <input type="button" value="확인" class="submit_button" onclick="answer_check()"/><br>
+    <input type="button" value="확인" class="submit_button" onclick="answer_check()"/>
     <input type="button" value="초기화" class="reset_button" onclick="reset()"/><br>
     
+    <div id="location"></div>
     
    <form id="record_form" name="record_form" method="post"> 
 	    <!-- 총 시도 횟 수를 script의 변수의 값을 넣을 태그 -->
@@ -64,7 +65,7 @@
 
 	function makeRanNum(){
 		startClock();	//스탑워치 실행
-		randomNum = (parseInt)(Math.random()*1 +1);
+		randomNum = (parseInt)(Math.random()*1 +10);
 		total_count = 0;	//시작과 동시에 시도횟수 전역변수를 0으로 초기화
 		document.querySelector("#try_count").innerText=total_count;
 	}
@@ -75,7 +76,55 @@
 		document.querySelector("#try_count").innerText=total_count;
 	}
 	
+	//220809 슬
 	function answer_check() {
+		console.log("answer_check() 작동");
+		this.total_count+=1;	
+		console.log(total_count);
+		document.querySelector("#try_count").innerText=total_count;
+		
+		//0809 추가
+		var num = $("#inputNum").val()
+		console.log(num);
+		
+		var button_id = document.getElementById("location");
+		
+		var newNode_inputNum = document.createElement("p");
+		newNode_inputNum.innerHTML = "입력한 번호 : " + num ;
+		
+		var newNode_down = document.createElement("p");
+		newNode_down.innerHTML = " DOWN !!" ;
+		
+		var newNode_up= document.createElement("p");
+		newNode_up.innerHTML = " UP !!" ;
+		
+		var newNode_right= document.createElement("p");
+		newNode_right.innerHTML = " *********** 정답 ***********" ;
+		
+		
+		document.body.insertBefore(newNode_inputNum, button_id);
+		if($("#inputNum").val() < randomNum){document.body.insertBefore(newNode_up, button_id);$("#inputNum").focus(); return false;}
+		if($("#inputNum").val() > randomNum){document.body.insertBefore(newNode_down, button_id);$("#inputNum").focus(); return false;}
+		if($("#inputNum").val() == randomNum){
+			stopClock();	//정답을 맞출 시 타이머 정지
+			
+			document.body.insertBefore(newNode_right, button_id);
+			
+			$.ajax({
+				url : "/game/updown", //전송할 url
+				type : "post", //전송할 메서드 타입
+				dataType : "text", //받을 데이터 타입 안정하면 기본 xml형식
+				data : {"record_cnt" : total_count,"record_time" : timerId}, //전송할 데이터 
+				success : function(a){
+					alert("정답입니다!\n"+"${userid}님의 기록이 저장되었습니다!\n"+"시도 횟수:"+total_count+"\n"+"경과시간:"+timerId+"(초)");
+					location.href = "/game/updown";
+				}
+			});
+		}
+	}
+	
+	//--------------------------------------------
+	function answer_check_OLD() { // ver.1 사용 X
 		console.log("answer_check() 작동");
 		this.total_count+=1;	
 		console.log(total_count);
@@ -97,7 +146,7 @@
 			});
 			console.log("this.total_count"+total_count);
 		}
-	}
+	}//answer_check_OLD()
 
 
 	</script>

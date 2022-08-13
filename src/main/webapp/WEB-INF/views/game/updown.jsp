@@ -31,6 +31,7 @@
 <a id=login href="/member/login">로그인</a>
 <a id=logout href="/member/logout">로그아웃</a>
 <a href="/board/write">글 작성</a>
+<a href="/game/RPS">가위바위보</a>
 
 <hr>
 <br>
@@ -57,6 +58,35 @@
 		<br>	
 		
 	</form>
+	
+	
+	<!-- 220811 상위 랭킹 보기 -->
+	<input type="button" value="TOP 10 보기" id="ranking_btn" class="ranking_btn" onclick="ranking()">
+	<div id="ranking_list" class="ranking_list"></div>
+	
+	<!-- ========================================상위 랭킹 보기 스크립트================================================= -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+	function ranking(){
+		$.ajax({
+			url : "/game/updown",
+			type : "post",
+			dataType : "JSON",
+			success : function(rankingUD){
+				console.log(rankingUD);
+				 
+				var rankingList = "";
+	            $.each(rankingUD, function (index, item) {
+	              console.log(index, item);
+	              rankingList += "<li>"+"** "+ (index+1) +"위 ** " +"ID : "+ item.userid +" / 소요시간(초) : " + item.record_time +" / 시도횟수 : " + item.record_cnt+ "</li>";
+	            }); 
+	            $("#ranking_list").html(rankingList);
+	          }, 
+		});
+	}
+	
+	</script>
+	
 	
 	<!-- ========================================스크립트_게임 알고리즘================================================= -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

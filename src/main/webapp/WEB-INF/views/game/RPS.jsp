@@ -164,6 +164,38 @@
 <br>
 <div id="login_message">${userid}님! 환영합니다!</div> <br>
 
+<!-- 220813 전적 기록 보기 -->
+<h3><div id="record_message">***** ${userid}님의 기록! *****</div></h3>
+<div id="hashmap">
+<%-- <c:forEach items="${sum_record_RPS}" var="sum">
+	${sum.win}<br>
+	${sum.lose}<br>
+	${sum.tie}<br>
+</c:forEach> --%>
+<%-- <table>
+	<thead>
+		<tr>
+			<th>win</th>
+			<th>lose</th>
+			<th>tie</th>
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach items="${mapEntry}" var="val">
+			<tr>
+				<td>${val}</td>
+			</tr>
+		</c:forEach>
+	</tbody>
+</table>  --%>
+ 
+	<c:forEach items="${map}" var="val">
+		<c:out value="${val}"></c:out>
+	</c:forEach> 
+	
+	<h3>***************************</h3>
+</div>
+<!-- 전적 기록 보기 끝 -->
     
     <h3>가위, 바위, 보 중 하나를 선택하세요</h3>
     <div id="input">

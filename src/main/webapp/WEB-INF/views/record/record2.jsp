@@ -14,37 +14,23 @@
 function game_condition() {
 	console.log("function condition 진입");
 	
+
 	$.ajax({
 		url : "/record/record2",
 		type : "post",
-		dataType : "text",
+		dataType : "JSON",
 		data : {gamecode : $('select[name="gamecode"]').val()},
-		success : function(success){
-			 alert("ajax 성공");
-			
-		}
+		success : function(record2){
+			console.log(record2);
+			 
+			var recordList = "";
+            $.each(record2, function (index, item) {
+              console.log(index, item);
+              recordList += "<li>"+ item.userid +" " +item.game_code +" " +item.win_or_lose +" " + item.record_time +" " + item.record_cnt +" " +item.connect_time + "</li>";
+            }); 
+            $("#record2").html(recordList);
+          }, //end-success
 	});
-	 
-/* 	$.ajax({
-		url : "/record/record2",
-		type : "post",
-		// dataType : "text",
-		// data : {gamecode : $('select[name="gamecode"]').val()},
-		success : function(success){
-			// alert("ajax 성공");
-			// $("#tbody").show();
-			var newRows;
-			for(var i in data.tableRow){
-				newRow += "<tr><td>" + ${rcd.userid} +"</td>"
-				newRow += "<td>" + ${rcd.game_code} +"</td>"
-				newRow += "<td>" + ${rcd.win_or_lose} +"</td>"
-				newRow += "<td>" + ${rcd.record_time} +"</td>"
-				newRow += "<td>" + ${rcd.record_cnt} +"</td>"
-				newRow += "<td>" + ${rcd.connect_time} +"</td></tr>"
-			}
-			$("#tbody").html(newRows);
-		}
-	}); */
 }  
 
 </script>
@@ -88,7 +74,7 @@ function game_condition() {
 		</tr>
 	</thead>
 	<tbody id="tbody" class="tbody" style="display:none">
-		<c:forEach items="${record2}" var="rcd">
+		<%-- <c:forEach items="${record2}" var="rcd">
 			<tr>
 				<td>${rcd.userid}</td>
 				<td>${rcd.game_code}</td>
@@ -98,10 +84,12 @@ function game_condition() {
 				<td>${rcd.connect_time}</td>
 				
 			</tr>
-		</c:forEach>
+		</c:forEach> --%>
 	</tbody>
 </table>
 
+			<div id ="record2" class="record2"></div>
+	
 
 </body>
 </html>

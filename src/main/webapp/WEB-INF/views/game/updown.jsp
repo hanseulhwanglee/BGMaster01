@@ -50,7 +50,7 @@
 			
 		<!-- 타이머 기록을 담을 태그 -->
 		<h1>
-			<div id="stopwatch" class="recordTime" name="recordTime" style="margin: 100px" value="">
+			<div id="stopwatch" class="recordTime" name="recordTime" style="margin: 40px" value="">
 			        00:00:00
 		    </div>
 	    </h1>

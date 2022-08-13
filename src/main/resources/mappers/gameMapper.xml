@@ -16,6 +16,30 @@
 		VALUES (#{userid}, #{game_code}, #{win_or_lose})
 	</insert>
 	
+		
+	<!-- 220811 -->
+	<!-- updown 상위 랭킹 리스트 -->
+	<select id="ranking_UD" resultType="bgm.bgmaster.domain.GameDTO">
+		SELECT userid, game_code, record_time, record_cnt, lpad(record_time,'3','0'), lpad(record_cnt,'3','0')
+		FROM public.tbl_record 
+		WHERE game_code= '1'
+		ORDER BY lpad(record_time,'3','0'), lpad(record_cnt,'3','0')
+		limit 10;
+	</select>
+	
+	<!-- 220811 -->
+	<!-- 가위바위보 아이디 별 기록 -->
+	<select id="sum_record_RPS" parameterType="HashMap" resultType="HashMap">
+		select 
+			count(case when win_or_lose='win' then 1 end) as win,
+			count(case when win_or_lose='lose' then 1 end) as lose,
+			count(case when win_or_lose='tie' then 1 end) as tie
+		FROM public.tbl_record 
+		WHERE userid =#{userid} and game_code='2'
+		; 		
+	</select>
+	
+	
 </mapper>
 
 

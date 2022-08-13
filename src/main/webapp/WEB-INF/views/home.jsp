@@ -37,7 +37,8 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 
-<a href="/board/list">리스트</a>
+<a href="/board/list">게시판</a>
+<br>
 <a id=login href="/member/login">로그인</a>
 <a id=sigup href="/member/signup">회원가입</a>
 <a id=logout href="/member/logout">로그아웃</a>

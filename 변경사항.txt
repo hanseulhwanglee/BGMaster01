@@ -1,3 +1,7 @@
+#220814 슬
+1. Game 가위바위보 오류없는 얼레벌레 HashMap 
+2. RecordController : HttpServletRequest -> @RequestParam("gamecode") String gamecode으로 변경
+
 #220813 슬
 1. Game UpDown 상위 10위 랭킹보기 추가
 2. <오류> Game 가위바위보 HashMap 오류 도와줘!

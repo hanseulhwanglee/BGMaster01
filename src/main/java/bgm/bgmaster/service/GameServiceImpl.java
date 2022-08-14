@@ -1,5 +1,6 @@
 package bgm.bgmaster.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -43,13 +44,9 @@ public class GameServiceImpl implements GameService {
 	}
 	
 	// --------가위바위보 아이디 별 기록 보기--------	
-	//public List<GameDTO> getRPS()  throws Exception{
-		//return gameDAO.getRPS();
-	//public int getRPS(GameDTO gameDTO) throws Exception{
-		//return gameDAO.getRPS(gameDTO);
-		
-//	public HashMap<String, String> getRPS(String userid) throws Exception{
-	public List<Map<String, Object>> getRPS(String userid) throws Exception{
+	public HashMap<String, String> getRPS(String userid) throws Exception{
+	// 도와줘!	
+	//public List<Map<String, Object>> getRPS(String userid) throws Exception{
 		logger.info("가위바위보 Hashmap Service 진입");
 		return gameDAO.getRPS(userid);
 	}

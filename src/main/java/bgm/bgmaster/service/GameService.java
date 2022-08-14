@@ -1,5 +1,6 @@
 package bgm.bgmaster.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,10 +18,8 @@ public interface GameService {
 	public List<GameDTO> postUpdownRK() throws Exception;
 	
 	// --------가위바위보 아이디 별 기록 보기--------	
-	//public List<GameDTO> getRPS() throws Exception;
-	//public int getRPS(GameDTO gameDTO) throws Exception;
-	//public HashMap<String, String> getRPS(String userid) throws Exception;
-	//public List<HashMap<String, Object>> getRPS(String userid) throws Exception;
-	public List<Map<String, Object>> getRPS(String userid) throws Exception;
+	public HashMap<String, String> getRPS(String userid) throws Exception;
+	//도와줭!
+	//public List<Map<String, Object>> getRPS(String userid) throws Exception;
 
 }

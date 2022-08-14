@@ -1,7 +1,10 @@
 package bgm.bgmaster.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
@@ -69,50 +72,23 @@ public class GameController {
 	//----------------가위바위보 게임 페이지 이동_GET -----------------------
 	@GetMapping(value="/RPS")
 	public void getRPS(Model model, HttpSession session,GameDTO gameDTO) throws Exception{
-		//logger.info("session.getAttribute(userid):{}",session.getAttribute("userid"));
 		model.addAttribute("userid", session.getAttribute("userid"));
-		
-		
 
 		//220811 
 		// --------가위바위보 아이디 별 기록 보기--------	
-		//List<GameDTO> sum_record_RPS = gameService.getRPS();
-		//logger.info("가위바위보 승패 list : {}", sum_record_RPS );
-		
 		String userid = (String) session.getAttribute("userid");
 		gameDTO.setUserid(userid);
 		
-		//int win = gameService.getRPS(gameDTO);
-		//logger.info("가위바위보 int : ", gameService.getRPS(gameDTO));
-		
-		//HashMap<String, String> map = gameService.getRPS(userid);
-		
-		List<Map<String, Object>> map = gameService.getRPS(userid);
+		HashMap<String, String> map = gameService.getRPS(userid);
+		//도와줘!
+		//List<Map<String, Object>> map = gameService.getRPS(userid);
 		
 		model.addAttribute("map",map);
 		
 		logger.info("list<map> : {}" , map);
 		
-		//List<String,String> keyvalue = new ArrayList<String>(map.entrySet());
-		//List<String, String> keyvalue = new ArrayList<String,String>(map.entrySet());
+		List<Map.Entry<String, String>> mapEntry = map.entrySet().stream().collect(Collectors.toList());
 		
-//		List<String> keyList = new ArrayList<String>(map.keySet());
-//		List<Object> valueList = new ArrayList<Object>(map.values());
-//		List<Map.Entry<String, String>> mapEntry = map.entrySet().stream().collect(Collectors.toList());
-		
-//		model.addAttribute("valueList",valueList);
-//		model.addAttribute("mapEntry",mapEntry);
-//		
-//		System.out.println("WHOLE : " + mapEntry);
-//		System.out.println("keyList : "+keyList);
-//		System.out.println("valueList : " +valueList);
-		
-		//logger.info("가위바위보 Hashmap controller 진입");
-		// logger.info("가위바위보 Hashmap : ", sum_record_RPS);
-		//System.out.println("keyset"+map.keySet());
-		//System.out.println("values"+map.values());
-		//System.out.println("keyvalues"+map.toString());
-	
 	}
 	
 

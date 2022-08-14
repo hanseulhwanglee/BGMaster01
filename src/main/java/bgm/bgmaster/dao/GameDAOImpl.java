@@ -1,5 +1,6 @@
 package bgm.bgmaster.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -46,17 +47,15 @@ public class GameDAOImpl implements GameDAO {
 	
 	// --------가위바위보 아이디 별 기록 보기--------	
 	@Override
-	//public List<GameDTO> getRPS() throws Exception{
-		//return sql.selectList(NAMESPACE+".sum_record_RPS");
-	//public int getRPS(GameDTO gameDTO) throws Exception{
-		//return sql.selectOne(NAMESPACE+".sum_record_RPS", gameDTO);
-	//public HashMap<String, String> getRPS(String userid) throws Exception{ //
-	//public List<HashMap<String, Object>> getRPS(String userid) throws Exception{
-	public List<Map<String, Object>> getRPS(String userid) throws Exception{
+	public HashMap<String, String> getRPS(String userid) throws Exception{ //
+	//도와줘!	
+	//public List<Map<String, Object>> getRPS(String userid) throws Exception{
 		logger.info("가위바위보 Hashmap DAO 진입");
-		List<Map<String, Object>> test =  sql.selectOne(NAMESPACE+".sum_record_RPS",userid);
+		//List<Map<String, Object>> test =  sql.selectOne(NAMESPACE+".sum_record_RPS",userid);
 		logger.info("가위바위보 Hashmap DAO 진입-test");
-		return test;
+		return sql.selectOne(NAMESPACE+".sum_record_RPS",userid);
+		//return test;
+		
 
 	}
 

@@ -47,14 +47,10 @@ public class GameDAOImpl implements GameDAO {
 	
 	// --------가위바위보 아이디 별 기록 보기--------	
 	@Override
-	public HashMap<String, String> getRPS(String userid) throws Exception{ //
-	//도와줘!	
-	//public List<Map<String, Object>> getRPS(String userid) throws Exception{
-		logger.info("가위바위보 Hashmap DAO 진입");
-		//List<Map<String, Object>> test =  sql.selectOne(NAMESPACE+".sum_record_RPS",userid);
-		logger.info("가위바위보 Hashmap DAO 진입-test");
-		return sql.selectOne(NAMESPACE+".sum_record_RPS",userid);
-		//return test;
+	public List<Map<String, Object>> getRPS(String userid) throws Exception{
+//		logger.info("가위바위보 Hashmap DAO 진입");
+//		logger.info("가위바위보 Hashmap DAO 진입-test");
+		return sql.selectList(NAMESPACE+".sum_record_RPS",userid);
 		
 
 	}

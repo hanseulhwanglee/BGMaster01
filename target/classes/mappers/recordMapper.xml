@@ -19,10 +19,12 @@
 	</select>
 	
 	<!-- 기록 게임별 호출 Ajax -->
- 	<select id="code_list_ajax" resultType="bgm.bgmaster.domain.RecordDTO">
+ 	<select id="code_list_ajax" parameterType="bgm.bgmaster.domain.RecordDTO"  resultType="bgm.bgmaster.domain.RecordDTO">
 		SELECT userid, game_code, win_or_lose, record_time, record_cnt, connect_time
 		FROM public.tbl_record
-		WHERE game_code= #{gamecode}
+		   <if test="game_code != '00'">
+				WHERE game_code= #{game_code}
+   		   </if>
 	</select>
 	
 </mapper>

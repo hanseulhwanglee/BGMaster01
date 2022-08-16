@@ -44,9 +44,7 @@ public class GameServiceImpl implements GameService {
 	}
 	
 	// --------가위바위보 아이디 별 기록 보기--------	
-	public HashMap<String, String> getRPS(String userid) throws Exception{
-	// 도와줘!	
-	//public List<Map<String, Object>> getRPS(String userid) throws Exception{
+	public List<Map<String, Object>> getRPS(String userid) throws Exception{
 		logger.info("가위바위보 Hashmap Service 진입");
 		return gameDAO.getRPS(userid);
 	}

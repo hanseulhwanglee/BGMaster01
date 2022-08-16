@@ -1,8 +1,12 @@
+#220816 슬
+1. 220813 Game 가위바위보 HashMap 오류 해결(DAO에서 SelectOne을 SelectList로 수정)
+2. 규 - Game Updown에서 상위랭킹보기 버튼을 누르면 빈 데이터가 추가되는 오류 수정
+
 #220816 규
 1. tbl_board테이블 writer 칼럼-> userid 로 수정 필요(프로젝트내 public.tables.sql writer -> userid로 쿼리 수정)
 2. MemberDTO writer -> userid 수정
 3. boardMapper writer -> userid 수정
-4. recordMapper 기록 게임별 호출 Ajax 수정(if문 추가)
+4. recordMapper 기록 게임별 호출 Ajax 수정(if문 추가) + DTO 활용
 
 #220813 슬
 1. Game UpDown 상위 10위 랭킹보기 추가

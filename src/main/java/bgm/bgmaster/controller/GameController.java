@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import bgm.bgmaster.domain.GameDTO;
@@ -43,7 +44,7 @@ public class GameController {
 	@ResponseBody
 	@PostMapping(value="/updown")
 	//public String postUpdown(GameDTO gameDTO, HttpSession session) throws Exception{
-	public List<GameDTO> postUpdown(GameDTO gameDTO, HttpSession session) throws Exception {
+	public void postUpdown(GameDTO gameDTO, HttpSession session) throws Exception {
 
 		//logger.info("updown게임_POST 진입");
 		//logger.info("recordTime:{}",gameDTO.getRecordTime());
@@ -58,14 +59,21 @@ public class GameController {
 		
 		gameService.postUpdown(gameDTO);
 
-		//220811  슬
-		// --------게임 상위 랭킹 보기--------		
+	}
+	
+	//220815 슬 
+	// ----------------Updown 게임_POST----------------
+	// --------게임 상위 랭킹 보기--------
+	@ResponseBody
+	@RequestMapping(value="/updownRK", method= {RequestMethod.POST})
+	public List<GameDTO> postUpdownRK() throws Exception{
+		
 		logger.info("랭킹 - updown게임_POST controller 진입");
 		List<GameDTO> rankingUD = gameService.postUpdownRK();
 		logger.info("rankingUD : {}", rankingUD);
-//		return "";
+//			return "";
+		
 		return rankingUD;
-	
 	}
 	
 	//#220728 슬
@@ -79,15 +87,11 @@ public class GameController {
 		String userid = (String) session.getAttribute("userid");
 		gameDTO.setUserid(userid);
 		
-		HashMap<String, String> map = gameService.getRPS(userid);
-		//도와줘!
-		//List<Map<String, Object>> map = gameService.getRPS(userid);
+		List<Map<String, Object>> map = gameService.getRPS(userid);
 		
 		model.addAttribute("map",map);
 		
 		logger.info("list<map> : {}" , map);
-		
-		List<Map.Entry<String, String>> mapEntry = map.entrySet().stream().collect(Collectors.toList());
 		
 	}
 	

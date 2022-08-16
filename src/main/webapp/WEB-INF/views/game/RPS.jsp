@@ -167,30 +167,10 @@
 <!-- 220813 전적 기록 보기 -->
 <h3><div id="record_message">***** ${userid}님의 기록! *****</div></h3>
 <div id="hashmap">
-<%-- <c:forEach items="${sum_record_RPS}" var="sum">
-	${sum.win}<br>
-	${sum.lose}<br>
-	${sum.tie}<br>
-</c:forEach> --%>
-<%-- <table>
-	<thead>
-		<tr>
-			<th>win</th>
-			<th>lose</th>
-			<th>tie</th>
-		</tr>
-	</thead>
-	<tbody>
-		<c:forEach items="${mapEntry}" var="val">
-			<tr>
-				<td>${val}</td>
-			</tr>
-		</c:forEach>
-	</tbody>
-</table>  --%>
- 
-	<c:forEach items="${map}" var="val">
-		<c:out value="${val}"></c:out>
+	<c:forEach items="${map}" var="map">
+		<td>승 = <c:out value="${map.win}"></c:out> </td>
+		<td>/ 패 = <c:out value="${map.lose}"></c:out></td>
+		<td>/ 무승부 = <c:out value="${map.tie}"></c:out></td>
 	</c:forEach> 
 	
 	<h3>***************************</h3>

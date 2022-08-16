@@ -69,7 +69,7 @@
 	<script type="text/javascript">
 	function ranking(){
 		$.ajax({
-			url : "/game/updown",
+			url : "/game/updownRK",
 			type : "post",
 			dataType : "JSON",
 			success : function(rankingUD){

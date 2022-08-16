@@ -77,13 +77,18 @@ public class RecordController {
 	// ----------------게임 결과 통계 AJAX_POST Record2-----------------------
 	@ResponseBody
 	@RequestMapping(value="/record2", method = {RequestMethod.POST}) 
-	public List<RecordDTO> postRecord2(Model model, @RequestParam("gamecode") String gamecode) throws Exception{
+	public List<RecordDTO> postRecord2(Model model, HttpServletRequest request, RecordDTO dto) throws Exception{
+		/*
+		String gamecode = request.getParameter("gamecode");
 		logger.info("gamecode_post2_ajax:{}", gamecode);
-		
 		logger.info("ajax record2 controller 진입");
+		*/
 		
-		List<RecordDTO> record2 = recordService.getRecord2(gamecode);
-		model.addAttribute("record2", record2);
+		logger.info("dto:{}",dto);
+		//List<RecordDTO> record2 = recordService.getRecord2(gamecode);
+		//model.addAttribute("record2", record2);
+		List<RecordDTO> record2 = recordService.getRecord2(dto);
+		logger.info("record2:{}",record2);
 	
 	return record2; 
 	

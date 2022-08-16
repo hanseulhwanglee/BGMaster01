@@ -36,7 +36,7 @@ public class RecordDAOImpl implements RecordDAO {
 	
 	//0808
 	//-----기록 리스트 호출 ajax-----
-	public List<RecordDTO> getRecord2(String gamecode) throws Exception{
+	public List<RecordDTO> getRecord2(RecordDTO gamecode) throws Exception{
 		logger.info("ajax record2 DAO 진입");
 		return sql.selectList(NAMESPACE+".code_list_ajax",gamecode);
 	}

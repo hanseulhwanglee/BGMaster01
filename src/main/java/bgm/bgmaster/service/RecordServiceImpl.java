@@ -33,7 +33,7 @@ public class RecordServiceImpl implements RecordService {
 	
 	//0808
 	//-----기록 리스트 호출 ajax-----
-	public List<RecordDTO> getRecord2(String gamecode) throws Exception{
+	public List<RecordDTO> getRecord2(RecordDTO gamecode) throws Exception{
 		logger.info("ajax record2 service 진입");
 		
 		return recordDAO.getRecord2(gamecode);

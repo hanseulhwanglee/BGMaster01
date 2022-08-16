@@ -19,7 +19,7 @@ function game_condition() {
 		url : "/record/record2",
 		type : "post",
 		dataType : "JSON",
-		data : {gamecode : $('select[name="gamecode"]').val()},
+		data : {game_code : $('select[name="game_code"]').val()},
 		success : function(record2){
 			console.log(record2);
 			 
@@ -52,9 +52,9 @@ function game_condition() {
 <div id="login_message">${userid}님! 환영합니다!</div> <br>
 
 <form id="condition" name="condition" method="post">
-	<select id="gamecode" name="gamecode">
+	<select id="gamecode" name="game_code">
 		<option value=0>게임을 선택하세요</option>
-		<option value="*">전체</option>
+		<option value="00">전체</option>
 		<option value="1">Updown</option>
 		<option value="2">가위바위보</option>
 	</select>

@@ -16,7 +16,7 @@
 	<label>제목</label>
 	<div>${view.title}</div> <br>
 	<label>작성자</label>
-	<div>${view.writer}</div> <br>
+	<div>${view.userid}</div> <br>
 	<label>내용</label>
 	<div>${view.content}</div> <br>
 <hr>

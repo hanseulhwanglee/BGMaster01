@@ -7,27 +7,27 @@
 
 	<!-- 리스트 호출 list-->
 	<select id="selectlist" resultType="bgm.bgmaster.domain.BoardDTO">
-		SELECT bno, title, content, writer, reg_date, view_cnt, file_name, file_size
+		SELECT bno, title, content, userid, reg_date, view_cnt, file_name, file_size
 		FROM public.tbl_board
 	</select>
 	
 	<!-- 게시글 내용 보기 view-->
 	<select id="view" parameterType="bgm.bgmaster.domain.BoardDTO" resultType="bgm.bgmaster.domain.BoardDTO">
-		SELECT bno, title, content, writer, reg_date, view_cnt, file_name, file_size
+		SELECT bno, title, content, userid, reg_date, view_cnt, file_name, file_size
 		FROM public.tbl_board
 		WHERE bno=#{bno}
 	</select>
 
 	<!-- 게시글 삽입 write-->
 	<insert id="write" parameterType="bgm.bgmaster.domain.BoardDTO">
-		INSERT into public.tbl_board (title, writer, content)
-		VALUES (#{title}, #{writer}, #{content})
+		INSERT into public.tbl_board (title, userid, content)
+		VALUES (#{title}, #{userid}, #{content})
 	</insert>
 	
 	<!-- 게시글 수정 Update -->
 	<update id="update" parameterType="bgm.bgmaster.domain.BoardDTO">
 		UPDATE public.tbl_board 
-		SET title=#{title}, writer=#{writer}, content=#{content}
+		SET title=#{title}, userid=#{userid}, content=#{content}
 		WHERE bno=#{bno}
 	</update>
 	

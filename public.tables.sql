@@ -4,7 +4,7 @@ create table public.tbl_board(
 	bno serial not null primary key,
 	title varchar(50) not null,
 	content text not null,
-	writer varchar(30) not null,
+	userid varchar(30) not null,
 	reg_date timestamp not null DEFAULT CURRENT_TIMESTAMP,
 	view_cnt int null,
 	file_name varchar(200) null,

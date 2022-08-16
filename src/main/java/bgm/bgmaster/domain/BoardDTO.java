@@ -6,7 +6,7 @@ public class BoardDTO {
 		bno serial not null primary key,
 		title varchar(50) not null,
 		content text not null,
-		writer varchar(30) not null,
+		userid varchar(30) not null,
 		reg_date timestamp not null DEFAULT CURRENT_TIMESTAMP,
 		view_cnt int null,
 		file_name varchar(200) null,
@@ -20,7 +20,7 @@ public class BoardDTO {
 	private int bno;
 	private String title;
 	private String content;
-	private String writer;
+	private String userid;
 	private String reg_date;
 	private int view_cnt;
 	private String file_name;
@@ -52,11 +52,11 @@ public class BoardDTO {
 	}
 	
 	public String getWriter() {
-		return writer;
+		return userid;
 	}
 	
 	public void setWriter(String writer) {
-		this.writer = writer;
+		this.userid = writer;
 	}
 	
 	public String getReg_date() {
@@ -95,13 +95,13 @@ public class BoardDTO {
 	//---------Constructor---------
 	public BoardDTO() {} // 기본생성자
 	
-	public BoardDTO(int bno, String title, String content, String writer, String reg_date, int view_cnt,
+	public BoardDTO(int bno, String title, String content, String userid, String reg_date, int view_cnt,
 			String file_name, int file_size) {
 		super();
 		this.bno = bno;
 		this.title = title;
 		this.content = content;
-		this.writer = writer;
+		this.userid = userid;
 		this.reg_date = reg_date;
 		this.view_cnt = view_cnt;
 		this.file_name = file_name;
@@ -111,7 +111,7 @@ public class BoardDTO {
 	//---------toString---------
 	@Override
 	public String toString() {
-		return "BoardDTO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer
+		return "BoardDTO [bno=" + bno + ", title=" + title + ", content=" + content + ", userid=" + userid
 				+ ", reg_date=" + reg_date + ", view_cnt=" + view_cnt + ", file_name=" + file_name + ", file_size="
 				+ file_size + "]";
 	}

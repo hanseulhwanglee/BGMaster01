@@ -44,13 +44,16 @@ public class BoardController {
 	
 	//---------게시글 삽입 write_GET---------
 	@GetMapping(value = "/write")
-	public void getWrite() throws Exception{
+	public void getWrite(Model model, HttpSession session) throws Exception{
+		
+		String userid = (String)session.getAttribute("userid");
+		model.addAttribute("userid",userid);
 		
 	}
 
 	//---------게시글 삽입 write_POST---------
 	@PostMapping(value = "/write")
-	public String postWrite(BoardDTO dto) throws Exception{
+	public String postWrite(BoardDTO dto, HttpSession session) throws Exception{
 		service.postWrite(dto);
 		return "redirect:/board/list";
 	}

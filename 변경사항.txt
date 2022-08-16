@@ -1,6 +1,7 @@
-#220814 슬
-1. Game 가위바위보 오류없는 얼레벌레 HashMap 
-2. RecordController : HttpServletRequest -> @RequestParam("gamecode") String gamecode으로 변경
+#220816 규
+1. tbl_board테이블 writer 칼럼-> userid 로 수정 필요(프로젝트내 public.tables.sql writer -> userid로 쿼리 수정)
+2. MemberDTO writer -> userid 수정
+3. boardMapper writer -> userid 수정
 
 #220813 슬
 1. Game UpDown 상위 10위 랭킹보기 추가

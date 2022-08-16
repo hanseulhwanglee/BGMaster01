@@ -63,7 +63,7 @@
 			<tr>
 				<td>${list.bno}</td>
 				<td><a href="/board/view?bno=${list.bno}">${list.title}</a></td>
-				<td>${list.writer}</td>
+				<td>${list.userid}</td>
 				<td>${list.content}</td>
 				<td>${list.reg_date}</td>
 			</tr>

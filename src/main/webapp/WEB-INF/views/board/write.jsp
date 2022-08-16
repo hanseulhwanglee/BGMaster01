@@ -7,7 +7,7 @@
 </head>
 
 <style>
-	#writer{
+	#userid{
 		background:#E2E2E2;	
 	}
 </style>
@@ -24,7 +24,7 @@
 	<label>제목</label>
 	<input type="text" id="title" name="title" /> <br>
 	<label>작성자</label>
-	<input type="text" id="writer" name="writer" value="${userid}" readonly/> <br>
+	<input type="text" id="userid" name="userid" value="${userid}" readonly/> <br>
 	<label>내용</label><br>
 	<textarea rows="10" cols="40" name="content"></textarea> <br>
 	

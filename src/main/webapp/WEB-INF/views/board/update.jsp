@@ -17,7 +17,7 @@
 	<label>제목</label>
 	<input type="text" id="title" name="title" value="${update.title}"/> <br>
 	<label>작성자</label>
-	<input type="text" id="writer" name="writer" value="${update.writer}"/> <br>
+	<input type="text" id="userid" name="userid" value="${update.userid}"/> <br>
 	<label>내용</label>
 	<textarea rows="10" cols="40" name="content">${update.content}</textarea> <br>
 	

@@ -27,7 +27,7 @@ public class BoardController {
 	@GetMapping(value = "/list")
 	public void getList(Model model, HttpSession session) throws Exception{
 		List<BoardDTO> list = service.getList();
-		
+		//
 		model.addAttribute("list",list);
 		
 		model.addAttribute("login_userid", session.getAttribute("userid"));

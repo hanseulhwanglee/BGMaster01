@@ -78,7 +78,8 @@
 				var rankingList = "";
 	            $.each(rankingUD, function (index, item) {
 	              console.log(index, item);
-	              rankingList += "<li>"+"** "+ (index+1) +"위 ** " +"ID : "+ item.userid +" / 소요시간(초) : " + item.record_time +" / 시도횟수 : " + item.record_cnt+ "</li>";
+	              rankingList += "<li>"+"** "+ (index+1) +"위 ** " +"ID : "+ item.userid +" / 소요시간(초) : " 
+	              + item.record_time +" / 시도횟수 : " + item.record_cnt+ "</li>";
 	            }); 
 	            $("#ranking_list").html(rankingList);
 	          }, 
@@ -95,7 +96,7 @@
 
 	function makeRanNum(){
 		startClock();	//스탑워치 실행
-		randomNum = (parseInt)(Math.random()*1 +10);
+		randomNum = (parseInt)(Math.random()*10 +1);
 		total_count = 0;	//시작과 동시에 시도횟수 전역변수를 0으로 초기화
 		document.querySelector("#try_count").innerText=total_count;
 	}

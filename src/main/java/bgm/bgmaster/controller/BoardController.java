@@ -22,6 +22,7 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 	
+	//0820 git test
 	
 	//---------리스트 호출 list---------
 	@GetMapping(value = "/list")

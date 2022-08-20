@@ -23,6 +23,7 @@ public class BoardController {
 	private BoardService service;
 	
 	//0820 git test
+	//0820 깃 테스트 규
 	
 	//---------리스트 호출 list---------
 	@GetMapping(value = "/list")

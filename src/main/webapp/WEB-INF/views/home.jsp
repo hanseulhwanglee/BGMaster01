@@ -49,9 +49,10 @@
 <br>
 <a href="/ex/echo">채팅</a>
 <br>
-<a href="/record/record">결과통계(Record)</a>
-<a href="/record/record2">결과통계(Record2)</a>
-<a href="/record/record3">결과통계(Record3)</a>
+<label>결과통계 : </label>
+<a href="/record/record">Record</a>
+<a href="/record/record2">Record2</a>
+<a href="/record/record3">Record3</a>
 
 <h4> root-context에서 DB 설정하세요</h4>
 <h4>

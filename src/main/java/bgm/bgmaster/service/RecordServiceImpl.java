@@ -38,4 +38,17 @@ public class RecordServiceImpl implements RecordService {
 		
 		return recordDAO.getRecord2(gamecode);
 	}
+	
+
+	//0818
+	//-----Record3 Game_code & month-----
+	public List<RecordDTO> postRecord3(RecordDTO recordDTO) throws Exception{
+		return recordDAO.postRecord3(recordDTO);
+	}
+	
+	//0818
+	//-----Record3 Connect_time Date-----
+	public List<RecordDTO> postRecord3_2(String date) throws Exception{
+		return recordDAO.postRecord3_2(date);
+	}
 }

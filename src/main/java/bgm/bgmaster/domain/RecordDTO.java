@@ -19,6 +19,8 @@ public class RecordDTO {
 	private String win_or_lose;
 	private String record_time;
 	private String record_cnt;
+	
+	private int month;
 
 	
 	//---------Getter/Setter---------
@@ -70,12 +72,20 @@ public class RecordDTO {
 		this.record_cnt = record_cnt;
 	}
 	
+	public int getMonth() {
+		return month;
+	}
+	
+	public void setMonth(int month) {
+		this.month = month;
+	}
+	
 	//---------Constructor---------
 	public RecordDTO() {	//기본생성자
 	}
 
 	public RecordDTO(String userid, String game_code, String connect_time, String win_or_lose, String record_time,
-			String record_cnt) {
+			String record_cnt, int month) {
 		super();
 		this.userid = userid;
 		this.game_code = game_code;
@@ -83,13 +93,15 @@ public class RecordDTO {
 		this.win_or_lose = win_or_lose;
 		this.record_time = record_time;
 		this.record_cnt = record_cnt;
+		this.month = month;
 	}
 
 	//---------toString---------
 	@Override
 	public String toString() {
 		return "RecordDTO [userid=" + userid + ", game_code=" + game_code + ", connect_time=" + connect_time
-				+ ", win_or_lose=" + win_or_lose + ", record_time=" + record_time + ", record_cnt=" + record_cnt + "]";
+				+ ", win_or_lose=" + win_or_lose + ", record_time=" + record_time + ", record_cnt=" + record_cnt
+				+ ", month=" + month + "]";
 	}
 
 	

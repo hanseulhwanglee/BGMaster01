@@ -21,12 +21,14 @@ function game_condition() {
 		dataType : "JSON",
 		data : {game_code : $('select[name="game_code"]').val()},
 		success : function(record2){
-			console.log(record2);
+			//console.log(record2);
 			 
-			var recordList = "";
+			//var recordList = "";
             $.each(record2, function (index, item) {
               console.log(index, item);
-              recordList += "<li>"+ item.userid +" " +item.game_code +" " +item.win_or_lose +" " + item.record_time +" " + item.record_cnt +" " +item.connect_time + "</li>";
+              //recordList += "<li>"+ item.userid +" " +item.game_code +" " +item.win_or_lose +" " + item.record_time +" " + item.record_cnt +" " +item.connect_time + "</li>";
+              //슬
+              $("#tbody").append('<tr><td>' + item.userid +'</td><td>'+item.game_code+'</td><td>'+item.win_or_lose+'</td><td>'+item.record_time+'</td><td>'+item.record_cnt+'</td><td>'+item.connect_time+'</td></tr>');
             }); 
             $("#record2").html(recordList);
           }, //end-success
@@ -73,18 +75,8 @@ function game_condition() {
 			<th>접속시간</th>
 		</tr>
 	</thead>
-	<tbody id="tbody" class="tbody" style="display:none">
-		<%-- <c:forEach items="${record2}" var="rcd">
-			<tr>
-				<td>${rcd.userid}</td>
-				<td>${rcd.game_code}</td>
-				<td>${rcd.win_or_lose}</td>
-				<td>${rcd.record_time}</td>
-				<td>${rcd.record_cnt}</td>
-				<td>${rcd.connect_time}</td>
-				
-			</tr>
-		</c:forEach> --%>
+	<tbody id="tbody" class="tbody" >
+	
 	</tbody>
 </table>
 

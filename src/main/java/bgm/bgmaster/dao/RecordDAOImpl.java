@@ -1,6 +1,8 @@
 package bgm.bgmaster.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -41,5 +43,22 @@ public class RecordDAOImpl implements RecordDAO {
 		return sql.selectList(NAMESPACE+".code_list_ajax",gamecode);
 	}
 	
+	//0818 
+	//-----Record3 Game_code & month-----
+	public List<RecordDTO> postRecord3(RecordDTO recordDTO) throws Exception{
+		return sql.selectList(NAMESPACE+".code_month_list", recordDTO);
+	}
 	
+	//0818 
+	//-----Record3 Connect_time Date-----
+	public List<RecordDTO> postRecord3_2(String date) throws Exception{
+		Map<String, Integer> dateMap = new HashMap<String,Integer>();
+		int year = Integer.parseInt(date.substring(0,4));
+		int month = Integer.parseInt(date.substring(5,7));
+		int day = Integer.parseInt(date.substring(8,10));
+		dateMap.put("year", year);
+		dateMap.put("month", month);
+		dateMap.put("day", day);
+		return sql.selectList(NAMESPACE+".selected_date", dateMap);
+	}
 }

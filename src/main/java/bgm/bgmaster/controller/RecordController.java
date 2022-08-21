@@ -95,4 +95,38 @@ public class RecordController {
 	}
 	
 
+	// #220818 슬
+	// ----------------게임 결과 통계 페이지 이동_GET Record3-----------------------
+	@GetMapping(value = "/record3")
+	public void getRecord3(Model model, HttpSession session) throws Exception{
+		model.addAttribute("userid", session.getAttribute("userid")); // login_message userid
+	}
+	
+	// #220818 슬
+	// ----------------게임 결과 통계 gamecode&month _POST Record3-----------------------
+	@ResponseBody
+	@RequestMapping(value = "/record3", method = {RequestMethod.POST})
+	public List<RecordDTO> postRecord3(RecordDTO recordDTO) throws Exception{
+		List<RecordDTO> record3 = recordService.postRecord3(recordDTO);
+		return record3;
+	}
+	
+	// #220818 슬
+	// ----------------게임 결과 통계 gamecode&month _POST Record3-----------------------
+	@ResponseBody
+	@RequestMapping(value = "/record32", method = {RequestMethod.POST})
+	public List<RecordDTO> postRecord3_2(@RequestParam("selected_date") String date, RecordDTO recordDTO) throws Exception{
+		logger.info("selected_date : {}", date); //selected_date:2022-08-18 (String)
+		String year = date.substring(0,4);
+		String month = date.substring(5,7);
+		String day = date.substring(8,10);
+		System.out.println("year = " +year +", month = "+ month+", day = "+day);
+		
+		List<RecordDTO> record3_2 = recordService.postRecord3_2(date);
+		return record3_2;
+		
+		
+	}
+	
+
 }

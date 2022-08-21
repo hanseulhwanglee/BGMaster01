@@ -27,6 +27,32 @@
    		   </if>
 	</select>
 	
+	<!-- record3 게임코드&월 -->
+	<select id="code_month_list" parameterType = "bgm.bgmaster.domain.RecordDTO" resultType = "bgm.bgmaster.domain.RecordDTO">
+		SELECT userid, game_code, win_or_lose, record_time, record_cnt, connect_time
+		FROM public.tbl_record
+		<choose>
+			<when test="game_code != '999' and month != '888' ">
+				WHERE game_code = #{game_code} and extract (month from connect_time) = #{month};
+			</when>
+			<when test="game_code == '999' and month != '888' ">
+				WHERE extract (month from connect_time) = #{month};
+			</when>
+			<when test="game_code != '999' and month == '888' ">
+				WHERE game_code = #{game_code}
+			</when>
+		</choose>
+	</select>
+	
+	<!-- record3 날짜별 기록 -->
+	<select id="selected_date" parameterType = "HashMap" resultType = "bgm.bgmaster.domain.RecordDTO">
+		SELECT userid, game_code, win_or_lose, record_time, record_cnt, connect_time
+		FROM public.tbl_record
+		WHERE extract (year from connect_time) = #{year} and 
+			extract (month from connect_time) = #{month} and 
+			extract (day from connect_time) = #{day}
+	</select>
+	
 </mapper>
 
 

@@ -49,8 +49,9 @@
 <br>
 <a href="/ex/echo">채팅</a>
 <br>
-<a href="/record/record">결과통계</a>
-<a href="/record/record2">결과통계-Ajax(진행중)</a>
+<a href="/record/record">결과통계(Record)</a>
+<a href="/record/record2">결과통계(Record2)</a>
+<a href="/record/record3">결과통계(Record3)</a>
 
 <h4> root-context에서 DB 설정하세요</h4>
 <h4>
@@ -62,7 +63,10 @@
 Game 1. UpDown : Stopwatch, Counting<br>
 Game 2. Rock-Paper-Scissors: win-lose-tie <br><br>
 
-- 통계(진행중)  <br><br>
+- 통계(진행중)  <br>
+Record 1. Game_code <br>
+Record 2. Game_code Ajax<br>
+Record 3. Game_code&Month, Date<br><br>
 
 - Chat : Socket <br><br>
 </h4>

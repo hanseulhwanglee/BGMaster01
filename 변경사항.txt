@@ -1,3 +1,10 @@
+#220821 슬
+1. 통계 리스트를 테이블로 변경
+2. Record3 추가
+- Game_code&Month, Date별 통계
+- Record3.jsp, RecordController, RecordDAO, RecordService, RecordDTO, RecordMapper 수정
+3. Home.jsp 수정
+
 #220816 슬
 1. 220813 Game 가위바위보 HashMap 오류 해결(DAO에서 SelectOne을 SelectList로 수정)
 2. 규 - Game Updown에서 상위랭킹보기 버튼을 누르면 빈 데이터가 추가되는 오류 수정

@@ -26,6 +26,7 @@ public class BoardController {
 	//0820 깃 테스트 규
 	//0820 깃 테스트 규 두번째
 	//0821 깃 테스트 규 세번째
+	//0823 깃 테스트 규 네번째
 	
 	//---------리스트 호출 list---------
 	@GetMapping(value = "/list")

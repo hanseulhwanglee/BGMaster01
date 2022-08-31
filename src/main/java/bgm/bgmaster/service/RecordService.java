@@ -2,6 +2,7 @@ package bgm.bgmaster.service;
 
 import java.util.List;
 
+import bgm.bgmaster.domain.MemberDTO;
 import bgm.bgmaster.domain.RecordDTO;
 
 public interface RecordService {
@@ -26,5 +27,11 @@ public interface RecordService {
 	//-----Record3 Connect_time Date-----
 	public List<RecordDTO> postRecord3_2(String date) throws Exception;
 	
-
+	//0824
+	//-----Record4 Record_time & Birthday-----
+	public List<MemberDTO> postRecord4_1() throws Exception;
+	
+	//0831
+	//-----Record4 승률 & Birthday-----
+	public List<MemberDTO> postRecord4_2() throws Exception;
 }

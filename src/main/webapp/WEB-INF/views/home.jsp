@@ -53,6 +53,7 @@
 <a href="/record/record">Record</a>
 <a href="/record/record2">Record2</a>
 <a href="/record/record3">Record3</a>
+<a href="/record/record4">record4</a>
 
 <h4> root-context에서 DB 설정하세요</h4>
 <h4>
@@ -67,7 +68,10 @@ Game 2. Rock-Paper-Scissors: win-lose-tie <br><br>
 - 통계(진행중)  <br>
 Record 1. Game_code <br>
 Record 2. Game_code Ajax<br>
-Record 3. Game_code&Month, Date<br><br>
+Record 3. Game_code&Month, Date<br>
+Record 4. tbl_record&tbl_member Up&down 순위 별 Birthday, 가위바위보 승률 순위별 Birthday<br>
+
+<br>
 
 - Chat : Socket <br><br>
 </h4>

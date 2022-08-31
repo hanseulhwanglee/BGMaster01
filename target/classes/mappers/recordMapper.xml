@@ -53,6 +53,33 @@
 			extract (day from connect_time) = #{day}
 	</select>
 	
+	<!-- Record4_1 Up&Down 상위 20명 생년월일 -->
+	<select id="birthday_code1" resultType="Hashmap">
+		SELECT M.userid, M.birthday, R.rcd_time, R.rcd_cnt 
+		FROM public.tbl_member M , (select R.userid, lpad(min(R.record_time),'3','0') rcd_time,  lpad(min(R.record_cnt),'3','0') rcd_cnt 
+									from public.tbl_record R
+									where R.game_code ='1'
+									group by R.userid
+									) R
+		where M.userid = R.userid
+		order by R.rcd_time, R.rcd_cnt
+		limit 20
+	</select>
+	
+	
+	<!-- Record4_1 가위바위보 승률 상위 20명 생년월일 -->
+	<select id="birthday_code2" resultType="Hashmap">
+		select M.userid, M.birthday, R.point 
+		from public.tbl_member M, (select R.userid, round((sum(case when R.win_or_lose='win' then 1 else 0 end)::numeric /count(R.win_or_lose)::numeric),3) as point
+										from public.tbl_record R
+										where game_code ='2'
+										group by userid) R	
+		where M.userid = R.userid
+		order by R.point desc
+		limit 20
+	</select>
+	
+	
 </mapper>
 
 

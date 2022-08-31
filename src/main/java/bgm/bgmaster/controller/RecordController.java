@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import bgm.bgmaster.domain.MemberDTO;
 import bgm.bgmaster.domain.RecordDTO;
 import bgm.bgmaster.service.RecordService;
 
@@ -124,9 +125,31 @@ public class RecordController {
 		
 		List<RecordDTO> record3_2 = recordService.postRecord3_2(date);
 		return record3_2;
-		
-		
 	}
 	
+	// 220824 슬
+	// ----------------게임 결과 통계 페이지 이동_GET Record4-----------------------
+	@GetMapping(value="/record4")
+	public void getRecord4(Model model, HttpSession session) throws Exception{
+		model.addAttribute("userid", session.getAttribute("userid"));
+	}
+	
+	// ----------------게임 결과 통계 Up&Down 상위 20명 생년월일 _POST Record4_1-----------------------
+	@ResponseBody
+	@RequestMapping(value= "/record/record4_1", method={RequestMethod.POST})
+	public List<MemberDTO> postRecord4_1() throws Exception{
+		List <MemberDTO> record4_1 = recordService.postRecord4_1();
+		//logger.info("record4_1 : {}", record4_1);
+		return record4_1;
+	}
+	
+	// ----------------게임 결과 통계 가위바위보 승률 상위 20명 생년월일 _POST Record4_2-----------------------
+	@ResponseBody
+	@RequestMapping(value= "/record/record4_2", method={RequestMethod.POST})
+	public List<MemberDTO> postRecord4_2() throws Exception{
+		List <MemberDTO> record4_2 = recordService.postRecord4_2();
+		//logger.info("record4_1 : {}", record4_1);
+		return record4_2;
+	}
 
 }

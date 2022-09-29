@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import bgm.bgmaster.domain.BoardDTO;
 import bgm.bgmaster.service.BoardService;
 
-//test
+//test11
 @Controller
 @RequestMapping("/board/*")
 public class BoardController {

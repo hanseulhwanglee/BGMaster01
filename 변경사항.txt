@@ -1,3 +1,9 @@
+#220831 슬
+1. Record4 추가
+- Up&Down tbl_member & tbl_record/ record_time, record_cnt 상위 20명 생년월일
+- 가위바위보 tbl_member & tbl_record/ win_or_lose 승률 상위 20명 생년월일
+
+
 #220821 슬
 1. 통계 리스트를 테이블로 변경
 2. Record3 추가

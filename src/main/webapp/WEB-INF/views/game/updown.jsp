@@ -141,43 +141,41 @@
 			
 			document.body.insertBefore(newNode_right, button_id);
 			
-			$.ajax({
-				url : "/game/updown", //전송할 url
-				type : "post", //전송할 메서드 타입
-				dataType : "text", //받을 데이터 타입 안정하면 기본 xml형식
-				data : {"record_cnt" : total_count,"record_time" : timerId}, //전송할 데이터 
-				success : function(a){
-					alert("정답입니다!\n"+"${userid}님의 기록이 저장되었습니다!\n"+"시도 횟수:"+total_count+"\n"+"경과시간:"+timerId+"(초)");
-					location.href = "/game/updown";
-				}
-			});
+			//221108 슬
+			//login이 안되어 있을 때, 오류 없이 데이터 저장. userid= "unknown"
+			var userid = '${userid}';
+			console.log("userid = "+userid);
+
+			if(userid !=""){
+				$.ajax({
+					url : "/game/updown", //전송할 url
+					type : "post", //전송할 메서드 타입
+					dataType : "text", //받을 데이터 타입 안정하면 기본 xml형식
+					data : {"userid": '${userid}', "record_cnt" : total_count,"record_time" : timerId}, //전송할 데이터 
+					//data : "recodeCount="+total_count+"&recodeTime="+timerId, 
+					success : function(a){
+						alert("정답입니다!\n"+"${userid}님의 기록이 저장되었습니다!\n"+"시도 횟수:"+total_count+"\n"+"경과시간:"+timerId+"(초)");
+						location.href = "/game/updown";
+						}
+					});
+			}else{
+				$.ajax({
+					url : "/game/updown", //전송할 url
+					type : "post", //전송할 메서드 타입
+					dataType : "text", //받을 데이터 타입 안정하면 기본 xml형식
+					data : {"userid": "unknown", "record_cnt" : total_count,"record_time" : timerId}, //전송할 데이터 
+					//data : "recodeCount="+total_count+"&recodeTime="+timerId, 
+					success : function(a){
+						alert("정답입니다!\n"+"UNKNOWN 님의 기록이 저장되었습니다!\n자신의 기록을 저장하려면 로그인 상태에서 게임을 실행하세요. \n\n"+"시도 횟수:"+total_count+"\n"+"경과시간:"+timerId+"(초)");
+						location.href = "/game/updown";
+						}
+					});
+			}
+			
 		}
 	}
 	
-	//--------------------------------------------
-	function answer_check_OLD() { // ver.1 사용 X
-		console.log("answer_check() 작동");
-		this.total_count+=1;	
-		console.log(total_count);
-		document.querySelector("#try_count").innerText=total_count;
-		if($("#inputNum").val() < randomNum){alert("UP!");$("#inputNum").focus(); return false;}
-		if($("#inputNum").val() > randomNum){alert("DOWN!");$("#inputNum").focus(); return false;}
-		if($("#inputNum").val() == randomNum){
-			stopClock();	//정답을 맞출 시 타이머 정지
-			alert("정답입니다!");
-			$.ajax({
-				url : "/game/updown", //전송할 url
-				type : "post", //전송할 메서드 타입
-				dataType : "text", //받을 데이터 타입 안정하면 기본 xml형식
-				data : {"record_cnt" : total_count,"record_time" : timerId}, //전송할 데이터 
-				success : function(a){
-					alert("${userid}님의 기록이 저장되었습니다!\n"+"시도 횟수:"+total_count+"\n"+"경과시간:"+timerId+"(초)");
-					location.href = "/game/updown";
-				}
-			});
-			console.log("this.total_count"+total_count);
-		}
-	}//answer_check_OLD()
+	
 
 
 	</script>

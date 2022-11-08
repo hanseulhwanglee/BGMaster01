@@ -99,53 +99,37 @@
 		//console.log("result : " + result);
 		//$("#record_btn").show(); // 기록 제출 버튼 show
 		
-		$.ajax({
-			url : "/game/RPS", //전송할 url
-			type : "post", //전송할 메서드 타입
-			dataType : "text", //받을 데이터 타입 안정하면 기본 xml형식
-			data : {"win_or_lose" : result}, //전송할 데이터 
-			success : function(a){
-				alert("${userid}님의 기록이 저장되었습니다!\n"+"승패 결과 : "+result);
-				location.href = "/game/RPS";
-			}
-		});
+		//221108 슬 
+		//login이 안되어 있을 때, 오류 없이 데이터 저장. userid= "unknown"
+		var userid = '${userid}';
+		console.log("userid = "+userid);
+
+		if(userid !=""){
+			$.ajax({
+				url : "/game/RPS", //전송할 url
+				type : "post", //전송할 메서드 타입
+				dataType : "text", //받을 데이터 타입 안정하면 기본 xml형식
+				data : {"userid": '${userid}', "win_or_lose" : result}, //전송할 데이터 
+				success : function(a){
+					alert("${userid}님의 기록이 저장되었습니다!\n"+"승패 결과 : "+result);
+					location.href = "/game/RPS";
+				}
+			});
+		}else{
+			$.ajax({
+				url : "/game/RPS", //전송할 url
+				type : "post", //전송할 메서드 타입
+				dataType : "text", //받을 데이터 타입 안정하면 기본 xml형식
+				data : {"userid": "unknown", "win_or_lose" : result}, //전송할 데이터 
+				success : function(a){
+					alert("UNKNOWN 님의 기록이 저장되었습니다!\n자신의 기록을 저장하려면 로그인 상태에서 게임을 실행하세요. \n\n"+"승패 결과 : "+result);
+					location.href = "/game/RPS";
+				}
+			});
+		}
 	}// new answer_check
 	
 	//--------------------------------------------
-	function answer_check_OLD() { // ver.1 사용 X 
-		
-		randomNum = (parseInt)(Math.random()*3);
-		
-		switch(randomNum){
-		case 0:
-			if($('input:radio[name="input"]:checked').val() =="0"){alert("컴퓨터: 가위 \n "+"비겼습니다!"); result="tie";}
-			else if($('input:radio[name="input"]:checked').val() =="1"){alert("컴퓨터: 가위 \n "+"이겼습니다!"); result="win";}
-			else if($('input:radio[name="input"]:checked').val() =="2"){alert("컴퓨터: 가위 \n "+"졌습니다!"); result="lose";}
-			break;
-		case 1:
-			if($('input:radio[name="input"]:checked').val() =="0"){alert("컴퓨터: 바위 \n "+"졌습니다!"); result="lose";}
-			else if($('input:radio[name="input"]:checked').val() =="1"){alert("컴퓨터: 바위 \n "+"비겼습니다!"); result="tie";}
-			else if($('input:radio[name="input"]:checked').val() =="2"){alert("컴퓨터: 바위 \n "+"이겼습니다!"); result="win";}
-			break;
-		case 2:
-			if($('input:radio[name="input"]:checked').val() =="0"){alert("컴퓨터: 보 \n "+"이겼습니다!"); result="win";}
-			else if($('input:radio[name="input"]:checked').val() =="1"){alert("컴퓨터: 보 \n "+"졌습니다!"); result="lose";}
-			else if($('input:radio[name="input"]:checked').val() =="2"){alert("컴퓨터: 보 \n "+"비겼습니다!"); result="tie";}
-			break;
-		}
-		//console.log("result : " + result);
-		//$("#record_btn").show(); // 기록 제출 버튼 show
-		$.ajax({
-			url : "/game/RPS", //전송할 url
-			type : "post", //전송할 메서드 타입
-			dataType : "text", //받을 데이터 타입 안정하면 기본 xml형식
-			data : {"win_or_lose" : result}, //전송할 데이터 
-			success : function(a){
-				alert("${userid}님의 기록이 저장되었습니다!\n"+"승패 결과 : "+result);
-				location.href = "/game/RPS";
-			}
-		});
-	} // answer_check_OLD
 	
 
 </script>

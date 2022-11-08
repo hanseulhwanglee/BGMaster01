@@ -42,14 +42,6 @@ public class GameController {
 	@PostMapping(value="/updown")
 	//public String postUpdown(GameDTO gameDTO, HttpSession session) throws Exception{
 	public void postUpdown(GameDTO gameDTO, HttpSession session) throws Exception {
-
-		//logger.info("updown게임_POST 진입");
-		//logger.info("recordTime:{}",gameDTO.getRecordTime());
-		//logger.info("recordCount:{}",gameDTO.getRecordCount());
-		
-		String userid= (String)session.getAttribute("userid");
-		//logger.info("userid:{}",userid);
-		gameDTO.setUserid(userid);
 		
 		//updown -> gamecode:1
 		gameDTO.setGame_code("1");
@@ -98,12 +90,7 @@ public class GameController {
 	@PostMapping(value="/RPS")
 	public String postRPS(GameDTO gameDTO, Model model, HttpSession session) throws Exception{
 		
-		//logger.info("가위바위보 게임_POST 진입");
-		//logger.info("winorlose:{}",gameDTO.getWinorlose());
-		
 		String userid= (String)session.getAttribute("userid");
-		//logger.info("userid:{}",userid);
-		gameDTO.setUserid(userid);
 		
 		// 2200730_kyu
 		model.addAttribute("userid",userid);

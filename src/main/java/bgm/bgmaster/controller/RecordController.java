@@ -21,7 +21,7 @@ import bgm.bgmaster.domain.MemberDTO;
 import bgm.bgmaster.domain.RecordDTO;
 import bgm.bgmaster.service.RecordService;
 
-
+ //test
 @Controller
 @RequestMapping("/record/*")
 public class RecordController {
@@ -51,7 +51,21 @@ public class RecordController {
 	public String postRecord(RecordDTO recordDTO, Model model, HttpSession session, HttpServletRequest request) throws Exception{
 		return ""; 
 	}
+
+	//test
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//test2
 	//==============gameCode.jsp==============
 	// #220804 슬
 	// ----------------game_code별 List 페이지 이동_GET -----------------------
